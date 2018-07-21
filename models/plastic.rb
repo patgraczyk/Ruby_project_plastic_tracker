@@ -11,4 +11,20 @@ def initialize( options )
   @weight = options['weight'].to_i
 end
 
-end #end of class 
+#create new plastic type
+def save()
+  sql = "INSERT INTO plastics (type, existance, weight) VALUES ($1, $2, $3)
+  RETURNING id"
+  values=[@type, @existance, @weight]
+  results = SqlRunner.run(sql, values)
+  @id = results.first()['id'].to_i
+end
+
+
+#delete all plastic types
+def self.delete_all
+  sql = "DELETE FROM plastics"
+  SqlRunner.run(sql)
+end
+
+end #end of class
