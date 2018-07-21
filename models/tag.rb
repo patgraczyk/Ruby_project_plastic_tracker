@@ -27,6 +27,14 @@ def update( )
   SqlRunner.run(sql, values)
 end
 
+#see all plastics associated with a specific tag
+def plastics()
+  sql = "SELECT plastics.* FROM plastics INNER JOIN products ON products.plastic_id = plastics.id WHERE products.tag_id = $1;"
+  values= [@id]
+  results= SqlRunner.run(sql, values)
+  return results.map{|plastic| Plastic.new(plastic)}
+end
+
 #delete all tags
 def self.delete_all
   sql = "DELETE FROM tags"
