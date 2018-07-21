@@ -8,7 +8,7 @@ id SERIAL8 primary key,
 type VARCHAR(255),
 existance INT4,
 weight INT4
--- emission_factor INT4, [for extension]
+-- emission_factor INT4, [for extension =weight * qant* emission_factor]
 );
 
 CREATE TABLE tags(

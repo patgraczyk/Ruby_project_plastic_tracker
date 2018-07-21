@@ -9,4 +9,4 @@ def initialize( options )
   @type = options['type']
   @existance = options['existance'].to_i
   @weight = options['weight'].to_i
-end 
+end
