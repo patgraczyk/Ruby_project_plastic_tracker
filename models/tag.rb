@@ -9,7 +9,7 @@ def initialize( options )
   @category=options['category']
 end
 
-
+#create new tag
 def save( )
   sql = "INSERT INTO tags (category)
   VALUES ($1)
@@ -19,4 +19,10 @@ def save( )
   @id = results.first()['id'].to_i
 end
 
+#delete all tags
 def self.delete_all
+  sql = "DELETE FROM tags"
+  SqlRunner.run(sql)
+end
+
+end #end of class

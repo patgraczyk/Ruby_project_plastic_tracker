@@ -10,3 +10,5 @@ def initialize( options )
   @existance = options['existance'].to_i
   @weight = options['weight'].to_i
 end
+
+end #end of class 

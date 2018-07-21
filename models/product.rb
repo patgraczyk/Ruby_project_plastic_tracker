@@ -13,3 +13,5 @@ def initialize( options )
   @plastic_id = options['plastic_id'].to_i
   @tag_id = options['tag_id'].to_i
 end
+
+end #end of class
