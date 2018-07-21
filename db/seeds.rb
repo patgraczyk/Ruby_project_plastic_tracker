@@ -72,4 +72,14 @@ product2 = Product.new({
   })
 product2.save
 
+product3 = Product.new({
+  'name' => 'shower gel',
+  'avoidability' => true,
+  'quantity' => 1,
+  'plastic_id' => plastic2.id,
+  'tag_id' => tag1.id
+  })
+product3.save()
+product3.name = 'hand cream'
+product3.update()
 # p Plastic.all()

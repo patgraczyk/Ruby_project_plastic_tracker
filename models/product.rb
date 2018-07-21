@@ -22,6 +22,11 @@ def save()
   @id = results.first()['id'].to_i
 end
 
+def update()
+  sql = "UPDATE products SET (name, avoidability, quantity, plastic_id, tag_id) = ($1, $2, $3, $4, $5) WHERE id=$6"
+  values=[@name, @avoidability, @quantity, @plastic_id, @tag_id, @id]
+  SqlRunner.run(sql, values)
+end
 #find all plastics
 
 #find all tags
