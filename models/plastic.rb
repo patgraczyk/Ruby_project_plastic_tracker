@@ -27,6 +27,14 @@ def delete()
   SqlRunner.run(sql,values)
 end
 
+#see all tags associated with a specific plastic 
+def tags()
+  sql = "SELECT t.* FROM tags t INNER JOIN products p ON p.tag_id = t.id WHERE p.plastic_id = $1;"
+  values= [@id]
+  results= SqlRunner.run(sql, values)
+  return results.map{|tag| Tag.new(tag)}
+end
+
 #delete all plastic types
 def self.delete_all
   sql = "DELETE FROM plastics"

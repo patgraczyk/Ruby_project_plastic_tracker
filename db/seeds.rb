@@ -84,4 +84,5 @@ product3.name = 'hand cream'
 product3.update()
 p product1.plastic()
 p product2.tag()
+p plastic1.tags()
 # p Plastic.all()
