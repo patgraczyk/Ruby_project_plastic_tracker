@@ -22,3 +22,5 @@ tag3 = Tag.new({
   })
 
 tag3.save
+
+p Tag.all()
