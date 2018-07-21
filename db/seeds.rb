@@ -18,6 +18,8 @@ tag2.save
 tag2.category="takeaway_drink"
 tag2.update
 p tag2
+p Tag.all()
+
 
 tag3 = Tag.new({
   "category" => "plastic_bags"
@@ -39,3 +41,15 @@ plastic2 = Plastic.new({
   'weight' => 40
 })
 plastic2.save()
+plastic2.delete()
+
+plastic3 = Plastic.new({
+  'type' => 'PET4',
+  'existance' => 250,
+  'weight' => 10
+})
+plastic3.save()
+plastic3.type = "PET5"
+plastic3.update
+
+p Plastic.all()

@@ -20,11 +20,34 @@ def save()
   @id = results.first()['id'].to_i
 end
 
+#delete by id
+def delete()
+  sql = "DELETE FROM plastics WHERE id = $1"
+  values = [@id]
+  SqlRunner.run(sql,values)
+end
 
 #delete all plastic types
 def self.delete_all
   sql = "DELETE FROM plastics"
   SqlRunner.run(sql)
 end
+
+#update entry
+def update( )
+  sql = "UPDATE plastics SET (type, existance, weight) = ($1, $2, $3)
+  WHERE id = $4"
+  values = [@type, @existance, @weight, @id]
+  SqlRunner.run(sql, values)
+end
+
+#find all plastics
+def self.all()
+  sql = "SELECT * FROM plastics"
+  plastics_data = SqlRunner.run(sql)
+  plastics = plastics_data.map {|plastic| Plastic.new( plastic)}
+  return plastics
+end
+
 
 end #end of class

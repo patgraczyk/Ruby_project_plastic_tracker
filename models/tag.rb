@@ -48,7 +48,7 @@ def self.all()
   return tags
 end
 
-#find by id
+#find by id - come back to write a function
 def self.find( id )
   sql = "SELECT * FROM tags WHERE id = $1"
   values = [id]
