@@ -25,6 +25,13 @@ def self.delete_all
   SqlRunner.run(sql)
 end
 
+#delete by id
+def delete()
+  sql = "DELETE FROM tags WHERE id = $1"
+  values = [@id]
+  SqlRunner.run(sql,values)
+end
+
 #find all tags
 def self.all()
   sql = "SELECT * FROM tags"
