@@ -6,8 +6,9 @@ DROP TABLE plastics;
 CREATE TABLE plastics(
 id SERIAL8 primary key,
 type VARCHAR(255),
-existance INT4,
+existence INT4,
 weight INT4
+-- weight is in grams
 -- emission_factor INT4, [for extension =weight * qant* emission_factor]
 );
 
@@ -21,6 +22,7 @@ id SERIAL8 primary key,
 name VARCHAR(255),
 avoidability BOOLEAN,
 quantity INT4,
+-- created BIGINT,
 -- date [for extensions]
 plastic_id INT8 REFERENCES plastics(id),
 tag_id INT8 REFERENCES tags(id)

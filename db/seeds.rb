@@ -3,13 +3,15 @@ require_relative("../models/plastic.rb")
 require_relative("../models/product.rb")
 require("pry-byebug")
 
+Product.delete_all()
 Tag.delete_all()
 Plastic.delete_all()
+
 
 tag1 = Tag.new({
   "category" => "cosmetics"
   })
-# tag1.save
+tag1.save
 
 tag2 = Tag.new({
   "category" => "hot_drink"
@@ -24,20 +26,20 @@ p Tag.all()
 tag3 = Tag.new({
   "category" => "plastic_bags"
   })
-# tag3.save
-# tag3.delete
-# p Tag.all()
+tag3.save
+tag3.delete
+p Tag.all()
 
 plastic1 = Plastic.new({
   'type' => 'PET1',
-  'existance' => 750,
+  'existence' => 750,
   'weight' => 40
   })
 plastic1.save()
 
 plastic2 = Plastic.new({
   'type' => 'PET1',
-  'existance' => 450,
+  'existence' => 450,
   'weight' => 40
 })
 plastic2.save()
@@ -45,11 +47,29 @@ plastic2.delete()
 
 plastic3 = Plastic.new({
   'type' => 'PET4',
-  'existance' => 250,
+  'existence' => 250,
   'weight' => 10
 })
 plastic3.save()
 plastic3.type = "PET5"
 plastic3.update
 
-p Plastic.all()
+product1 = Product.new({
+  'name' => 'plastic cup',
+  'avoidability' => true,
+  'quantity' => 1,
+  'plastic_id' => plastic1.id,
+  'tag_id' => tag2.id
+  })
+product1.save
+
+product2 = Product.new({
+  'name' => 'shampoo',
+  'avoidability' => false,
+  'quantity' => 1,
+  'plastic_id' => plastic2.id,
+  'tag_id' => tag1.id
+  })
+# product2.save
+
+# p Plastic.all()

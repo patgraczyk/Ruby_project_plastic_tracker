@@ -2,20 +2,20 @@ require_relative( '../db/sql_runner' )
 
 class Plastic
   attr_reader :id
-  attr_accessor :type, :existance, :weight
+  attr_accessor :type, :existence, :weight
 
 def initialize( options )
   @id = options['id'].to_i if options['id']
   @type = options['type']
-  @existance = options['existance'].to_i
+  @existence = options['existence'].to_i
   @weight = options['weight'].to_i
 end
 
 #create new plastic type
 def save()
-  sql = "INSERT INTO plastics (type, existance, weight) VALUES ($1, $2, $3)
+  sql = "INSERT INTO plastics (type, existence, weight) VALUES ($1, $2, $3)
   RETURNING id"
-  values=[@type, @existance, @weight]
+  values=[@type, @existence, @weight]
   results = SqlRunner.run(sql, values)
   @id = results.first()['id'].to_i
 end
@@ -35,9 +35,9 @@ end
 
 #update entry
 def update( )
-  sql = "UPDATE plastics SET (type, existance, weight) = ($1, $2, $3)
+  sql = "UPDATE plastics SET (type, existence, weight) = ($1, $2, $3)
   WHERE id = $4"
-  values = [@type, @existance, @weight, @id]
+  values = [@type, @existence, @weight, @id]
   SqlRunner.run(sql, values)
 end
 
