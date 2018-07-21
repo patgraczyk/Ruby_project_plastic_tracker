@@ -19,6 +19,14 @@ def save( )
   @id = results.first()['id'].to_i
 end
 
+#update entry
+def update( )
+  sql = "UPDATE tags SET category = $1
+  WHERE id = $2"
+  values = [@category, @id]
+  SqlRunner.run(sql, values)
+end
+
 #delete all tags
 def self.delete_all
   sql = "DELETE FROM tags"

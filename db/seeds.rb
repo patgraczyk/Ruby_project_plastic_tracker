@@ -9,19 +9,22 @@ tag1 = Tag.new({
   "category" => "cosmetics"
   })
 
-tag1.save
+# tag1.save
 
 tag2 = Tag.new({
   "category" => "hot_drink"
   })
 
 tag2.save
+tag2.category="takeaway_drink"
+tag2.update
+p tag2
 
 tag3 = Tag.new({
   "category" => "plastic_bags"
   })
 
-tag3.save
-tag3.delete
+# tag3.save
+# tag3.delete
 
-p Tag.all()
+# p Tag.all()
