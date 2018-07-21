@@ -43,7 +43,7 @@ plastic2 = Plastic.new({
   'weight' => 40
 })
 plastic2.save()
-plastic2.delete()
+# plastic2.delete()
 
 plastic3 = Plastic.new({
   'type' => 'PET4',
@@ -70,6 +70,6 @@ product2 = Product.new({
   'plastic_id' => plastic2.id,
   'tag_id' => tag1.id
   })
-# product2.save
+product2.save
 
 # p Plastic.all()
