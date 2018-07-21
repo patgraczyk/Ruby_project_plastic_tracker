@@ -27,9 +27,22 @@ def update()
   values=[@name, @avoidability, @quantity, @plastic_id, @tag_id, @id]
   SqlRunner.run(sql, values)
 end
-#find all plastics
+
+#find type of plastic
+def plastic()
+  sql = "SELECT * FROM plastics WHERE id=$1"
+  values=[@plastic_id]
+  results= SqlRunner.run(sql, values)
+  return Plastic.new( results.first )
+end
 
 #find all tags
+def tag()
+  sql = "SELECT * FROM tags WHERE id=$1"
+  values=[@tag_id]
+  results= SqlRunner.run(sql, values)
+  return Tag.new( results.first )
+end
 
 #find all products
 def self.all()

@@ -82,4 +82,6 @@ product3 = Product.new({
 product3.save()
 product3.name = 'hand cream'
 product3.update()
+p product1.plastic()
+p product2.tag()
 # p Plastic.all()
