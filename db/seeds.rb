@@ -3,6 +3,8 @@ require_relative("../models/plastic.rb")
 require_relative("../models/product.rb")
 require("pry-byebug")
 
+Tag.delete_all()
+
 tag1 = Tag.new({
   "category" => "cosmetics"
   })
@@ -19,4 +21,4 @@ tag3 = Tag.new({
   "category" => "plastic_bags"
   })
 
-tag3.save 
+tag3.save
