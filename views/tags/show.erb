@@ -3,3 +3,9 @@
 <p> Tag: <%= @tag.category %> </p>
 
 <p> <a href="/tags/<%= @tag.id %>/edit"> Edit</a></p>
+
+<form action="/tags/<%= @tag.id %>/delete" method="post">
+  <input type="submit" value="DELETE">
+</form>
+
+<p> <a href="/tags"> Go back to categories </a></p>
