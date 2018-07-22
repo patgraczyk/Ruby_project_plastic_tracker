@@ -64,4 +64,13 @@ def self.weight()
   return results.first['sum'].to_i
 end
 
+#calculate until when will the item be on the planet
+def existence()
+  sql = 'SELECT existence FROM plastics WHERE id=$1'
+  values=[@id]
+  results= SqlRunner.run(sql, values)
+  return Plastic.new(results.first)
+end
+
+
 end #end of class
