@@ -22,6 +22,7 @@ def save()
   @id = results.first()['id'].to_i
 end
 
+#update product
 def update()
   sql = "UPDATE products SET (name, avoidability, quantity, plastic_id, tag_id) = ($1, $2, $3, $4, $5) WHERE id=$6"
   values=[@name, @avoidability, @quantity, @plastic_id, @tag_id, @id]
@@ -44,7 +45,7 @@ def tag()
   return Tag.new( results.first )
 end
 
-#calculate total quantity
+#calculate total quantity of items
 def self.quantity()
   sql = "SELECT SUM(quantity) FROM products"
   results= SqlRunner.run(sql)
@@ -55,6 +56,15 @@ end
 def self.all()
   sql = "SELECT * FROM products"
   products_data = SqlRunner.run(sql)
+  products = products_data.map {|product| Product.new( product)}
+  return products
+end
+
+#find all products if avoidable
+def self.avoidable()
+  sql = "SELECT * FROM products WHERE avoidability = $1"
+  values = [@avoidability]
+  products_data = SqlRunner.run(sql, values)
   products = products_data.map {|product| Product.new( product)}
   return products
 end
