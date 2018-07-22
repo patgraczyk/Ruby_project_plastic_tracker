@@ -73,5 +73,11 @@ def biodegrate()
   #2018 hard coded at the moment, will change to use as a current year from SQL
 end
 
+def self.find( id )
+  sql = "SELECT * FROM plastics WHERE id = $1"
+  values = [id]
+  results = SqlRunner.run(sql, values)
+  return Plastic.new( results.first )
+end
 
 end #end of class

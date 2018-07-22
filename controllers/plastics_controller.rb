@@ -19,3 +19,9 @@ post '/plastics' do
   @plastic.save
   erb( :"plastics/create" )
 end
+
+#show the plastic
+get '/plastics/:id' do
+  @plastic = Plastic.find(params['id'])
+  erb(:"plastics/show")
+end
