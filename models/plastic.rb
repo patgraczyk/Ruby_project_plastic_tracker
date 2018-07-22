@@ -69,7 +69,8 @@ def existence()
   sql = 'SELECT existence FROM plastics WHERE id=$1'
   values=[@id]
   results= SqlRunner.run(sql, values)
-  return results.first['existence'].to_i
+  return results.first['existence'].to_i + 2018
+  #2018 hard coded at the moment, will change to use as a current year from SQL
 end
 
 
