@@ -44,7 +44,7 @@ def tag()
   results= SqlRunner.run(sql, values)
   return Tag.new( results.first )
 end
-
+#calculate until when will the product be on the planet
 def existence()
   sql = 'SELECT existence FROM plastics WHERE id=$1'
   values=[@plastic_id]
@@ -76,11 +76,6 @@ def self.avoidable(avoidability)
   products = products_data.map {|product| Product.new( product)}
   return products
 end
-
-
-
-
-
 
 #delete all products
 def self.delete_all

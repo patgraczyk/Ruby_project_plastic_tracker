@@ -64,7 +64,7 @@ def self.weight()
   return results.first['sum'].to_i
 end
 
-#calculate until when will the item be on the planet
+#calculate until when will the plastic be on the planet
 def existence()
   sql = 'SELECT existence FROM plastics WHERE id=$1'
   values=[@id]
