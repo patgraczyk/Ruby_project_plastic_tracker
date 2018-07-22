@@ -69,7 +69,7 @@ def existence()
   sql = 'SELECT existence FROM plastics WHERE id=$1'
   values=[@id]
   results= SqlRunner.run(sql, values)
-  return Plastic.new(results.first)
+  return results.first['existence'].to_i
 end
 
 
