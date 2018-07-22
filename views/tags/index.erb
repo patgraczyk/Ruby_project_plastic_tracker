@@ -2,6 +2,7 @@
 
 <% for tag in @tags %>
 <p> Name: <%= tag.category %> </p>
+<p> <a href = "/tags/<%= tag.id%>"> Show details </a><p>
 <% end %>
 
 <p><a href = "/tags/new"> Create a new category </a></p>

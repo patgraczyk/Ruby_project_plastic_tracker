@@ -20,3 +20,16 @@ post '/tags' do
   @tag.save
   erb( :"tags/create" )
 end
+
+#show the tag
+
+get 'tags/:id' do
+  @tag = Tag.find(params['id'])
+  erb(:"tags/show")
+end
+
+#edit the tag
+
+#post edited tag
+
+#delete tag
