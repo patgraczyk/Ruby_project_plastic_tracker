@@ -13,3 +13,10 @@ get '/tags/new' do
   @tags = Tag.all()
   erb( :"tags/new" )
 end
+
+#post a new tag
+post '/tags' do
+  @tag = Tag.new(params)
+  @tag.save
+  erb( :"tags/create" )
+end
