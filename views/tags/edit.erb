@@ -1,7 +1,7 @@
 <h1> Change the name of the category </h1>
 
 <form class="new_tag" action="/tags/<%= @tag.id %>" method="post">
-  <label for="category"> New category</label>
+  <label for="category"> Update category</label>
   <input id="category" type="text" name="category" value="<%=@tag.category%>">
   <input type="submit" value="Update category">
 </form>

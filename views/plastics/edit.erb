@@ -1,0 +1,14 @@
+<h1> Edit your plastic information </h1>
+
+<form class="new plastic" action="/plastics/<%= @plastic.id %>" method="post">
+  <label for="type"> Plastic type </label>
+  <input id="type" type="text" name="type" value="<%=@plastic.type%>">
+
+  <label for="existence"> How long to biodegrate </label>
+  <input id="existence" type="text" name="existence" value="<%=@plastic.existence%>">
+
+  <label for="weight"> Weight </label>
+  <input id="weight" type="text" name="weight" value="<%=@plastic.weight%>">
+
+  <input type="submit" value="Update entry">
+</form>
