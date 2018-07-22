@@ -44,6 +44,13 @@ def tag()
   return Tag.new( results.first )
 end
 
+#calculate total quantity
+def self.quantity()
+  sql = "SELECT SUM(quantity) FROM products"
+  results= SqlRunner.run(sql)
+  return results.first
+end
+
 #find all products
 def self.all()
   sql = "SELECT * FROM products"
