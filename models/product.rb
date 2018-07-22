@@ -61,9 +61,9 @@ def self.all()
 end
 
 #find all products if avoidable
-def self.avoidable()
+def self.avoidable(avoidability)
   sql = "SELECT * FROM products WHERE avoidability = $1"
-  values = [@avoidability]
+  values = [avoidability]
   products_data = SqlRunner.run(sql, values)
   products = products_data.map {|product| Product.new( product)}
   return products
