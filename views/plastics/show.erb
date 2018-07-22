@@ -7,5 +7,8 @@
 
 <p> <a href="/plastics/<%= @plastic.id %>/edit"> Edit </a></p>
 
+<form action="/plastics/<%= @plastic.id %>/delete" method="post">
+  <input type="submit" value="DELETE">
+</form>
 
 <p> <a href="/plastics"> Go back to plastics </a></p>

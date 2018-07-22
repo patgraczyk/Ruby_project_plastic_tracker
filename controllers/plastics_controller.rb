@@ -38,3 +38,10 @@ post '/plastics/:id' do
   plastic.update
   redirect to "plastics/#{params['id']}"
 end
+
+#delete plastic
+post '/plastics/:id/delete' do
+  @plastic = Plastic.find(params['id'])
+  @plastic.delete
+  redirect to "plastics"
+end
