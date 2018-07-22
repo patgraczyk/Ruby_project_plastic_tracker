@@ -12,3 +12,10 @@ get '/plastics/new' do
   @plastics = Plastic.all()
   erb (:"plastics/new")
 end
+
+#post a new plastic
+post '/plastics' do
+  @plastic = Plastic.new(params)
+  @plastic.save
+  erb( :"plastics/create" )
+end
