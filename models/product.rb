@@ -48,7 +48,7 @@ end
 def self.quantity()
   sql = "SELECT SUM(quantity) FROM products"
   results= SqlRunner.run(sql)
-  return results.first
+  return results.first['sum']
 end
 
 #find all products
