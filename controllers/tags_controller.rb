@@ -35,9 +35,15 @@ get '/tags/:id/edit' do
 end
 #
 # #update tag and post it
-# post '/tags/:id' do
-#   tag = Tag.new(params)
-#   tag.update
-#   redirect to "tags/#{params['id']}"
-# end
+post '/tags/:id' do
+  tag = Tag.new(params)
+  tag.update
+  redirect to "tags/#{params['id']}"
+end
+
 #delete tag
+post '/tags/:id/delete' do
+  @tag = Tag.find(params['id'])
+  @tag.delete
+  redirect to "tags"
+end 
