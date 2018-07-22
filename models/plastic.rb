@@ -65,7 +65,7 @@ def self.weight()
 end
 
 #calculate until when will the plastic be on the planet
-def existence()
+def biodegrate()
   sql = 'SELECT existence FROM plastics WHERE id=$1'
   values=[@id]
   results= SqlRunner.run(sql, values)

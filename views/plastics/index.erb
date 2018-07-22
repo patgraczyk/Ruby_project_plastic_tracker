@@ -1,1 +1,10 @@
-<h1> Plastics link working </h1>
+<h1> All recorded plastic types</h1>
+
+<% for plastic in @plastics %>
+<p> Type: <%= plastic.type %> </p>
+<p> Years to biodegrate: <%= plastic.existence %> </p>
+<p> Weight: <%= plastic.weight %> grams </p>
+<p> <a href = "/plastics/<%= plastic.id%>"> Show details </a><p>
+<% end %>
+
+<p><a href = "/plastics/new"> Create a new category </a></p>
