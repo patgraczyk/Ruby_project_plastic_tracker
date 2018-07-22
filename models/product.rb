@@ -45,6 +45,14 @@ def tag()
   return Tag.new( results.first )
 end
 
+def existence()
+  sql = 'SELECT existence FROM plastics WHERE id=$1'
+  values=[@plastic_id]
+  results= SqlRunner.run(sql, values)
+  return (results.first)['existence'].to_i + 2018
+  #2018 hard coded at the moment, will change to use as a current year from SQL
+end
+
 #calculate total quantity of items
 def self.quantity()
   sql = "SELECT SUM(quantity) FROM products"
@@ -68,6 +76,10 @@ def self.avoidable(avoidability)
   products = products_data.map {|product| Product.new( product)}
   return products
 end
+
+
+
+
 
 
 #delete all products

@@ -54,6 +54,10 @@ plastic3.save()
 plastic3.type = "PET5"
 plastic3.update
 
+p plastic1.existence()
+
+
+
 product1 = Product.new({
   'name' => 'plastic cup',
   'avoidability' => true,
@@ -82,11 +86,13 @@ product3 = Product.new({
 product3.save()
 product3.name = 'hand cream'
 product3.update()
-p product1.plastic()
-p product2.tag()
-p plastic1.tags()
-p tag1.plastics()
-p Product.quantity()
-p Product.avoidable(true)
-p Plastic.weight()
-p plastic1.existence()
+p product1.existence()
+
+
+# p product1.plastic()
+# p product2.tag()
+# p plastic1.tags()
+# p tag1.plastics()
+# p Product.quantity()
+# p Product.avoidable(true)
+# p Plastic.weight()
