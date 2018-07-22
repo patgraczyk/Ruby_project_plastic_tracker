@@ -33,8 +33,8 @@ get '/plastics/:id/edit' do
 end
 
 #post edited form
-# get '/plastics/:id' do
-#   plastic = Plastic.new(params)
-#   plastic.update
-#   redirect to "plastics/#{params['id']}"
-# end
+post '/plastics/:id' do
+  plastic = Plastic.new(params)
+  plastic.update
+  redirect to "plastics/#{params['id']}"
+end
