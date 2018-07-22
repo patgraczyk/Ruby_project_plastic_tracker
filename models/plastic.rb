@@ -57,5 +57,11 @@ def self.all()
   return plastics
 end
 
+#calculate total weight of items
+def self.weight()
+  sql = "SELECT SUM(weight) FROM plastics"
+  results= SqlRunner.run(sql)
+  return results.first['sum'].to_i
+end
 
 end #end of class
