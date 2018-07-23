@@ -89,6 +89,8 @@ product3 = Product.new({
 product3.save()
 product3.name = 'hand cream'
 product3.update()
+
+p product1.carbon_emissions_per_product()
 # p product1.existence()
 
 # p Product.weight_sum

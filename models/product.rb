@@ -22,6 +22,16 @@ def save()
   @id = results.first()['id'].to_i
 end
 
+
+def carbon_emissions_per_product()
+  sql = 'SELECT conversion_factor * weight FROM plastics WHERE id=$1'
+  values=[@id]
+  results= SqlRunner.run(sql, values)
+  emission_of_product = results.first['conversion_factor * weight'].to_f
+  return emission_of_product
+end
+
+
 #update product
 def update()
   sql = "UPDATE products SET (name, avoidability, quantity, plastic_id, tag_id) = ($1, $2, $3, $4, $5) WHERE id=$6"
