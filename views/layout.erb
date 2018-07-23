@@ -1,32 +1,28 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title> PlasticFree </title>
-    <link rel="icon" href="/images/bottle.png" />
+<head>
+  <meta charset="utf-8">
+  <title> PlasticFree </title>
+  <link rel="icon" href="/images/bottle.png" />
 
-    <link href="https://fonts.googleapis.com/css?family=Noto+Sans:400,700" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Noto+Sans:400,700" rel="stylesheet">
 
-    <link rel="stylesheet" href="styles/landing_styles.css">
-    <link rel="stylesheet" href="styles/style.css">
-  </head>
-  <body>
-    <main class="flex flex--column">
-  <nav>
-    <ul>
-      <li> <a href="/"> Homepage </li>
-      <li>
-        <a href="/products">My purchases</a>
-      </li>
-      <li>
-        <a href="/plastics">My world of plastic</a>
-      </li>
-      <li>
-        <a href="/tags">Categories</a>
-      </li>
-    </ul>
-  </nav>
-
+  <link rel="stylesheet" href="styles/landing_styles.css">
+  <link rel="stylesheet" href="styles/style.css">
+</head>
+<body>
+    <nav class="main-nav">
+      <ul class="main-nav__items">
+        <li class="main-nav__item">
+          <a href="/"> Homepage </li>
+            <li class="main-nav__item">
+              <a href="/products">My purchases</a> </li>
+            <li class="main-nav__item">
+              <a href="/plastics">My world of plastic</a></li>
+            <li class="main-nav__item">
+              <a href="/tags">Categories</a></li>
+          </ul>
+        </nav>
     <%= yield %>
-  </body>
+</body>
 </html>
