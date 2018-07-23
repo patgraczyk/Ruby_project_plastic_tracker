@@ -20,4 +20,14 @@
       <option value="<%= plastic.id %>"><%= plastic.type %></option>
       <% end %>
     </select>
+
+    <label for="tag_select"> Which category was it? </label>
+    <select name="tag_id" id="tag_select">
+      <% for tag in @tags %>
+      <option value="<%=tag.id%>"><%= tag.category %></option>
+      <% end %>
+    </select>
+
+    <input type="submit" value="Record new product">
+
 </form>
