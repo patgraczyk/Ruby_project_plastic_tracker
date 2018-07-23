@@ -84,6 +84,13 @@ def self.avoidable(avoidability)
   return products
 end
 
+#delete by id
+def delete()
+  sql = "DELETE FROM products WHERE id = $1"
+  values = [@id]
+  SqlRunner.run(sql,values)
+end
+
 #delete all products
 def self.delete_all
   sql = "DELETE FROM products"

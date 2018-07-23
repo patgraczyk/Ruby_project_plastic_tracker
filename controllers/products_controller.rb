@@ -47,3 +47,10 @@ post '/products/:id' do
   product.update
   redirect to "products/#{params['id']}"
 end
+
+#delete product
+post '/products/:id/delete' do
+  @product = Product.find(params['id'])
+  @product.delete
+  redirect to "products"
+end
