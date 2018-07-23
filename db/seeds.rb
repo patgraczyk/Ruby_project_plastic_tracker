@@ -33,14 +33,16 @@ p Tag.all()
 plastic1 = Plastic.new({
   'type' => 'PET1',
   'existence' => 750,
-  'weight' => 40
+  'weight' => 40,
+  'conversion_factor' => 3188.5478
   })
 plastic1.save()
 
 plastic2 = Plastic.new({
-  'type' => 'PET1',
+  'type' => 'PET2',
   'existence' => 450,
-  'weight' => 40
+  'weight' => 40,
+  'conversion_factor' => 2157.0453
 })
 plastic2.save()
 # plastic2.delete()
@@ -48,7 +50,8 @@ plastic2.save()
 plastic3 = Plastic.new({
   'type' => 'PET4',
   'existence' => 250,
-  'weight' => 10
+  'weight' => 10,
+  'conversion_factor' => 1775.3704
 })
 plastic3.save()
 plastic3.type = "PET5"
@@ -88,7 +91,7 @@ product3.name = 'hand cream'
 product3.update()
 # p product1.existence()
 
-p Product.weight_sum
+# p Product.weight_sum
 
 # p product1.plastic()
 # p product2.tag()

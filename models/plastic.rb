@@ -2,20 +2,21 @@ require_relative( '../db/sql_runner' )
 
 class Plastic
   attr_reader :id
-  attr_accessor :type, :existence, :weight
+  attr_accessor :type, :existence, :weight, :conversion_factor
 
 def initialize( options )
   @id = options['id'].to_i if options['id']
   @type = options['type']
   @existence = options['existence'].to_i
   @weight = options['weight'].to_i
+  @conversion_factor = options['conversion_factor'].to_f
 end
 
 #create new plastic type
 def save()
-  sql = "INSERT INTO plastics (type, existence, weight) VALUES ($1, $2, $3)
+  sql = "INSERT INTO plastics (type, existence, weight, conversion_factor) VALUES ($1, $2, $3, $4)
   RETURNING id"
-  values=[@type, @existence, @weight]
+  values=[@type, @existence, @weight, @conversion_factor]
   results = SqlRunner.run(sql, values)
   @id = results.first()['id'].to_i
 end
@@ -43,9 +44,9 @@ end
 
 #update entry
 def update( )
-  sql = "UPDATE plastics SET (type, existence, weight) = ($1, $2, $3)
-  WHERE id = $4"
-  values = [@type, @existence, @weight, @id]
+  sql = "UPDATE plastics SET (type, existence, weight, conversion_factor) = ($1, $2, $3, $4)
+  WHERE id = $5"
+  values = [@type, @existence, @weight, @conversion_factor, @id]
   SqlRunner.run(sql, values)
 end
 
@@ -57,7 +58,7 @@ def self.all()
   return plastics
 end
 
-#calculate total weight of items - Did I actually need it? 
+#calculate total weight of items - Did I actually need it?
 def self.weight()
   sql = "SELECT SUM(weight) FROM plastics"
   results= SqlRunner.run(sql)

@@ -7,9 +7,8 @@ CREATE TABLE plastics(
 id SERIAL8 primary key,
 type VARCHAR(255),
 existence INT4,
-weight INT4
--- weight is in grams
--- emission_factor INT4, [for extension =weight * qant* emission_factor]
+weight INT4,
+conversion_factor numeric
 );
 
 CREATE TABLE tags(
