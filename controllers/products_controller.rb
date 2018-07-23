@@ -10,6 +10,7 @@ get '/products' do
   @products = Product.all()
   @tags = Tag.all()
   @plastics = Plastic.all()
+  @product = Product.quantity_sum
   erb ( :"products/index" )
 end
 

@@ -54,7 +54,7 @@ def existence()
 end
 
 #calculate total quantity of items
-def self.quantity()
+def self.quantity_sum()
   sql = "SELECT SUM(quantity) FROM products"
   results= SqlRunner.run(sql)
   return results.first['sum'].to_i

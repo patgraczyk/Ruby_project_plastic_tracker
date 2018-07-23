@@ -5,11 +5,12 @@
 <p> Quantity: <%= @product.quantity %> </p>
 <p> Category: <%= @product.tag.category %> </p>
 <p> Plastic type: <%= @product.plastic.type %> </p>
-
 <p> <a href="/products/<%=@product.id%>/edit"> Edit </a></p>
 
 <form action="/products/<%=@product.id%>/delete" method="post">
   <input type="submit" value="Delete">
 </form>
+
+
 
 <p> <a href="/products"> Go back to products </a> </p>
