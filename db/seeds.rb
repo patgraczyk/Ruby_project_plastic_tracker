@@ -91,6 +91,7 @@ product3.name = 'hand cream'
 product3.update()
 
 p product1.carbon_emissions_per_product()
+p Product.carbon_emissions()
 # p product1.existence()
 
 # p Product.weight_sum

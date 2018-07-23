@@ -22,15 +22,22 @@ def save()
   @id = results.first()['id'].to_i
 end
 
-#display carbon emissions per product 
+#display carbon emissions per product
 def carbon_emissions_per_product()
   sql = 'SELECT SUM(conversion_factor * weight) AS converted FROM plastics WHERE id=$1'
   values=[@id]
   results= SqlRunner.run(sql, values)
-  emission_of_product = (results.first['converted'].to_f) * @quantity
+  emission_of_product = (results.first['converted'].to_f* @quantity)
   return emission_of_product
 end
 
+#carbon emissions of all products - to be fixed
+def self.carbon_emissions()
+  sql = 'SELECT SUM(conversion_factor * weight) AS converted FROM plastics'
+  results=SqlRunner.run(sql)
+  emission_of_products = (results.first['converted'].to_f)
+  return emission_of_products
+end
 
 #update product
 def update()

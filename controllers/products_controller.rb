@@ -12,6 +12,7 @@ get '/products' do
   @plastics = Plastic.all()
   @products_quantity = Product.quantity_sum
   @products_weight = Product.weight_sum
+  @products_emissions = Product.carbon_emissions
   erb ( :"products/index" )
 end
 
