@@ -60,6 +60,13 @@ def self.quantity_sum()
   return results.first['sum'].to_i
 end
 
+#calculate total weight of created products
+def self.weight_sum()
+  sql = "SELECT SUM(weight) FROM plastics INNER JOIN products ON products.plastic_id = plastic_id"
+  results= SqlRunner.run(sql)
+  return results.first['sum'].to_i
+end
+
 #find all products
 def self.all()
   sql = "SELECT * FROM products"

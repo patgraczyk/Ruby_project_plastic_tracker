@@ -57,7 +57,7 @@ def self.all()
   return plastics
 end
 
-#calculate total weight of items
+#calculate total weight of items - Did I actually need it? 
 def self.weight()
   sql = "SELECT SUM(weight) FROM plastics"
   results= SqlRunner.run(sql)

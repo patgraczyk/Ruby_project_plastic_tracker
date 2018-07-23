@@ -54,7 +54,7 @@ plastic3.save()
 plastic3.type = "PET5"
 plastic3.update
 
-p plastic1.existence()
+# p plastic1.existence()
 
 
 
@@ -86,8 +86,9 @@ product3 = Product.new({
 product3.save()
 product3.name = 'hand cream'
 product3.update()
-p product1.existence()
+# p product1.existence()
 
+p Product.weight_sum
 
 # p product1.plastic()
 # p product2.tag()

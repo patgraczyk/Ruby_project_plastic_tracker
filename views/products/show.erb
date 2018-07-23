@@ -5,7 +5,7 @@
 <p> Quantity: <%= @product.quantity %> </p>
 <p> Category: <%= @product.tag.category %> </p>
 <p> Plastic type: <%= @product.plastic.type %> </p>
-<p> Your plastic will be on the planter until:  <%= @product.existence %>
+<p> Your plastic will be on the planet until:  <%= @product.existence %>
 <p> <a href="/products/<%=@product.id%>/edit"> Edit </a></p>
 
 <form action="/products/<%=@product.id%>/delete" method="post">
