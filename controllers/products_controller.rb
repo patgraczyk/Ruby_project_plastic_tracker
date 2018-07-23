@@ -19,3 +19,9 @@ get '/products/new' do
   @plastics = Plastic.all()
   erb (:"products/new")
 end
+
+post '/products' do
+  @product = Product.new(params)
+  @product.save
+  erb (:"products/create")
+end
