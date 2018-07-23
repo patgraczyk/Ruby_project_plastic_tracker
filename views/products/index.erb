@@ -1,1 +1,14 @@
 <h1> Link working </h1>
+
+
+<% for product in @products %>
+<p> Name: <%= product.name %> </p>
+<p> Is it avoidable? <%= product.avoidability %> </p>
+<p> Quantity: <%= product.quantity %> </p>
+<p> Category: <%= product.tag.category %> </p>
+<p> Plastic type: <%= product.plastic.type %> </p>
+<p> <a href = "/products/<%= product.id%>"> Show details </a><p>
+<% end %>
+
+
+<p><a href = "/products/new"> Create a new product </a></p>
