@@ -24,10 +24,10 @@ end
 
 
 def carbon_emissions_per_product()
-  sql = 'SELECT conversion_factor * weight FROM plastics WHERE id=$1'
+  sql = 'SELECT SUM(conversion_factor * weight) AS converted FROM plastics WHERE id=$1'
   values=[@id]
   results= SqlRunner.run(sql, values)
-  emission_of_product = results.first['conversion_factor * weight'].to_f
+  emission_of_product = (results.first['converted'].to_f) * @quantity
   return emission_of_product
 end
 
