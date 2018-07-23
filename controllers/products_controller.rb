@@ -14,8 +14,8 @@ get '/products' do
 end
 
 #create a new product
-# get '/products/new' do
-#   @tags = Tag.all()
-#   @plastics = Plastic.all()
-#   erb (:"products/new")
-# end
+get '/products/new' do
+  @tags = Tag.all()
+  @plastics = Plastic.all()
+  erb (:"products/new")
+end
