@@ -22,7 +22,7 @@ def save()
   @id = results.first()['id'].to_i
 end
 
-
+#display carbon emissions per product 
 def carbon_emissions_per_product()
   sql = 'SELECT SUM(conversion_factor * weight) AS converted FROM plastics WHERE id=$1'
   values=[@id]
