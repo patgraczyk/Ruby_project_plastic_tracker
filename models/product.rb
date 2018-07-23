@@ -68,6 +68,13 @@ def self.all()
   return products
 end
 
+def self.find(id)
+  sql= "SELECT * FROM products WHERE id=$1"
+  values=[id]
+  results = SqlRunner.run(sql, values)
+  return Product.new(results.first)
+end
+
 #find all products if avoidable
 def self.avoidable(avoidability)
   sql = "SELECT * FROM products WHERE avoidability = $1"

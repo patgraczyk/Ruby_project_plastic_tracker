@@ -20,8 +20,15 @@ get '/products/new' do
   erb (:"products/new")
 end
 
+#save a new product to the list
 post '/products' do
   @product = Product.new(params)
   @product.save
   erb (:"products/create")
+end
+
+#show a specific product by id
+get '/products/:id' do
+  @product= Product.find(params['id'])
+  erb (:"products/show")
 end

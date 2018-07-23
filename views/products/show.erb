@@ -1,0 +1,9 @@
+<h1> This is your product </h1>
+
+<p> Name: <%= @product.name %> </p>
+<p> Is it avoidable? <%= @product.avoidability %> </p>
+<p> Quantity: <%= @product.quantity %> </p>
+<p> Category: <%= @product.tag.category %> </p>
+<p> Plastic type: <%= @product.plastic.type %> </p>
+
+<p> <a href="/products/<%=@product.id%>/edit"> Edit </a><p>
