@@ -32,3 +32,18 @@ get '/products/:id' do
   @product= Product.find(params['id'])
   erb (:"products/show")
 end
+
+#edit the selected product
+get '/products/:id/edit' do
+  @tags = Tag.all()
+  @plastics = Plastic.all()
+  @product = Product.find(params['id'])
+  erb (:"products/edit")
+end
+
+#post the edited form
+post '/products/:id' do
+  product=Product.new(params)
+  product.update
+  redirect to "products/#{params['id']}"
+end
