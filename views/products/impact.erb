@@ -25,6 +25,10 @@
   <%end%>
 
   <p> These items were recycable. You totally recycled them, right?</p>
+  <% for product in @products_recycable %>
+  <p> <%= product.name %> </p>
+  <%end%>
+  <p> And by the way, don't buy these, they go straight into landfil </p>
 
 <p> Your most popular plastic type was: </p>
 <p> Your most popular category was: </p>

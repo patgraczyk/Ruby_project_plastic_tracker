@@ -24,6 +24,7 @@ get '/products/impact' do
   @products_weight = Product.weight_sum
   @products_emissions = Product.carbon_emissions
   @products_avoidable = Product.avoidable(true)
+  @products_recycable = Product.recycable(true)
   erb (:"products/impact")
 end
 

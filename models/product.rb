@@ -111,6 +111,15 @@ def self.avoidable(avoidability)
   return products
 end
 
+#find all products if recycable
+def self.recycable(recycable)
+  sql = "SELECT * FROM plastics INNER JOIN products ON products.plastic_id = plastic_id WHERE recycable = $1"
+  values = [recycable]
+  products_data = SqlRunner.run(sql, values)
+  products = products_data.map {|product| Product.new( product)}
+  return products
+end
+
 #delete by id
 def delete()
   sql = "DELETE FROM products WHERE id = $1"
