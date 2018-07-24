@@ -10,6 +10,12 @@
   <label for="weight"> Weight </label>
   <input id="weight" type="text" name="weight" value="<%=@plastic.weight%>">
 
+  <label for="recycable"> Can the plastic be recycled?</label>
+  <select id = "recycable" type="checkbox" name="recycable" value="<%=@plastic.recycable%>">
+    <option value="true"> Yes </option>
+    <option value="false"> No </option>
+  <select >
+
   <label for="conversion_factor"> Conversion Factor </label>
   <input id="conversion-factor" type="number" name="conversion_factor" value="<%=@plastic.conversion_factor%>">
 
