@@ -33,7 +33,7 @@ end
 
 #carbon emissions of all products - to be fixed
 def self.carbon_emissions()
-  sql = 'SELECT SUM(conversion_factor * weight) AS converted FROM plastics'
+  sql = 'SELECT SUM(conversion_factor * weight) AS converted FROM plastics INNER JOIN products ON products.plastic_id = plastics.id '
   results=SqlRunner.run(sql)
   emission_of_products = (results.first['converted'].to_f)
   return emission_of_products

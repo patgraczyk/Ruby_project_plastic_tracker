@@ -1,4 +1,5 @@
 #
 get '/tips' do
-  p 'Hello World'
+  @tips = Tip.all()
+  erb (:"tips/index")
 end
