@@ -3,8 +3,8 @@ require_relative( 'time' )
 
 class Product
 
-  attr_reader( :plastic_id, :tag_id, :id )
-  attr_accessor( :name, :avoidability, :quantity, :bought_on)
+  attr_reader( :plastic_id, :tag_id, :id, :bought_on )
+  attr_accessor( :name, :avoidability, :quantity )
 
 def initialize( options )
   @id = options['id'].to_i

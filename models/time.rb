@@ -1,7 +1,7 @@
 class Time
 
-
-puts Time.new
-
+def get_time()
+ return Time.new
+end
 
 end
