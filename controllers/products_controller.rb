@@ -16,6 +16,17 @@ get '/products' do
   erb ( :"products/index" )
 end
 
+get '/products/impact' do
+  @products = Product.all()
+  @tags = Tag.all()
+  @plastics = Plastic.all()
+  @products_quantity = Product.quantity_sum
+  @products_weight = Product.weight_sum
+  @products_emissions = Product.carbon_emissions
+  @products_avoidable = Product.avoidable(true)
+  erb (:"products/impact")
+end
+
 #create a new product
 get '/products/new' do
   @tags = Tag.all()
