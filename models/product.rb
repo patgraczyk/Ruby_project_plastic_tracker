@@ -95,6 +95,18 @@ def self.all()
   return products
 end
 
+#find most popular tag
+def self.all()
+  sql="SELECT tag_id, COUNT(tag_id) AS most_common_tag FROM products
+  GROUP BY tag_id ORDER BY most_common_tag DESC LIMIT 1;"
+end
+
+#find most popular plastic
+def self.all()
+  sql='SELECT plastic_id, COUNT(plastic_id) AS most_common_plastic FROM products
+  GROUP BY plastic_id ORDER BY most_common_plastic DESC LIMIT 1;'
+end
+
 def self.find(id)
   sql= "SELECT * FROM products WHERE id=$1"
   values=[id]
