@@ -44,8 +44,8 @@ end
 
 #update product
 def update()
-  sql = "UPDATE products SET (name, avoidability, quantity, plastic_id, tag_id) = ($1, $2, $3, $4, $5, $6) WHERE id=$7"
-  values=[@name, @avoidability, @quantity, @plastic_id, @bought_on, @tag_id, @id]
+  sql = "UPDATE products SET (name, avoidability, quantity, plastic_id, tag_id) = ($1, $2, $3, $4, $5) WHERE id=$6"
+  values=[@name, @avoidability, @quantity, @plastic_id, @tag_id, @id]
   SqlRunner.run(sql, values)
 end
 
