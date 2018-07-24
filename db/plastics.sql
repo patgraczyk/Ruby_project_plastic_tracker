@@ -8,7 +8,8 @@ CREATE TABLE plastics(
   type VARCHAR(255),
   existence INT4,
   weight INT4,
-  conversion_factor NUMERIC
+  conversion_factor NUMERIC,
+  recycable BOOLEAN
 );
 
 CREATE TABLE tags(
