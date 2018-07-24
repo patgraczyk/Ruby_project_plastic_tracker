@@ -7,8 +7,7 @@
 <p> Plastic type: <%= @product.plastic.type %> </p>
 <p> Your plastic will be on the planet until:  <%= @product.existence %>
 <p> Carbon footprint: <%= @product.carbon_emissions_per_product %> kg CO2e </p>
-<%= @product.quantity %>
-<%= @product.plastic.weight %>
+
 <p> <a href="/products/<%=@product.id%>/edit"> Edit </a></p>
 
 <form action="/products/<%=@product.id%>/delete" method="post">
