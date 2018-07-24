@@ -8,5 +8,5 @@ also_reload('./models/*')
 
 
 get '/' do
-  erb( :index )
+  erb :index
 end
