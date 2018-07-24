@@ -93,8 +93,8 @@ product3.save()
 product3.name = 'hand cream'
 # product3.update()
 
-p Product.popular_tag
-p Product.popular_plastic
+p Product.most_common_tag
+p Product.most_common_plastic
 # p product1.carbon_emissions_per_product()
 # p Product.carbon_emissions()
 # p product1.existence()

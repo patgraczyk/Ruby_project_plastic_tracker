@@ -25,7 +25,29 @@ get '/products/impact' do
   @products_emissions = Product.carbon_emissions
   @products_avoidable = Product.avoidable(true)
   @products_recycable = Product.recycable(true)
+  @products_top_tag = Product.most_common_tag
+  @products_top_plastic = Product.most_common_plastic
   erb (:"products/impact")
+end
+
+get '/products/plastic' do
+  @products = Product.all()
+  @tags = Tag.all()
+  @plastics = Plastic.all()
+  @products_quantity = Product.quantity_sum
+  @products_weight = Product.weight_sum
+  @products_emissions = Product.carbon_emissions
+  erb ( :"products/plastic" )
+end
+
+get '/products/tag' do
+  @products = Product.all()
+  @tags = Tag.all()
+  @plastics = Plastic.all()
+  @products_quantity = Product.quantity_sum
+  @products_weight = Product.weight_sum
+  @products_emissions = Product.carbon_emissions
+  erb ( :"products/tag" )
 end
 
 #create a new product

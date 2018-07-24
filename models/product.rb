@@ -96,7 +96,7 @@ def self.all()
 end
 
 #find most popular tag
-def self.popular_tag()
+def self.most_common_tag()
   sql="SELECT tag_id, COUNT(tag_id) AS most_common_tag FROM products
   GROUP BY tag_id ORDER BY most_common_tag DESC LIMIT 1;"
   results =SqlRunner.run(sql)
@@ -104,7 +104,7 @@ def self.popular_tag()
 end
 
 #find most popular plastic
-def self.popular_plastic()
+def self.most_common_plastic()
   sql='SELECT plastic_id, COUNT(plastic_id) AS most_common_plastic FROM products
   GROUP BY plastic_id ORDER BY most_common_plastic DESC LIMIT 1;'
   results =SqlRunner.run(sql)
