@@ -24,10 +24,10 @@ end
 
 #display carbon emissions per product
 def carbon_emissions_per_product()
-  sql = 'SELECT SUM(conversion_factor * weight) AS converted FROM plastics WHERE id=$1'
+  sql = 'SELECT (conversion_factor * weight) AS converted FROM plastics INNER JOIN products ON products.plastic_id = plastics.id WHERE products.id = $1'
   values=[@id]
   results= SqlRunner.run(sql, values)
-  emission_of_product = (results.first['converted'].to_f* @quantity)
+  emission_of_product = results.first['converted'].to_f * @quantity
   return emission_of_product
 end
 
