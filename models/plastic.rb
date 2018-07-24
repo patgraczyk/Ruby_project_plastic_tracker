@@ -14,6 +14,8 @@ def initialize( options )
 end
 
 #create new plastic type
+
+
 def save()
   sql = "INSERT INTO plastics (type, existence, weight, conversion_factor, recycable) VALUES ($1, $2, $3, $4, $5)
   RETURNING id"

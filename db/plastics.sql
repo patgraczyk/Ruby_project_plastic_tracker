@@ -22,8 +22,7 @@ CREATE TABLE products(
   name VARCHAR(255),
   avoidability BOOLEAN,
   quantity INT4,
-  -- created BIGINT,
-  -- date [for extensions]
+  bought_on TIMESTAMP,
   plastic_id INT8 REFERENCES plastics(id),
   tag_id INT8 REFERENCES tags(id)
 )

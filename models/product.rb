@@ -1,23 +1,26 @@
 require_relative( '../db/sql_runner' )
+require_relative( 'time' )
 
 class Product
 
   attr_reader( :plastic_id, :tag_id, :id )
-  attr_accessor( :name, :avoidability, :quantity)
+  attr_accessor( :name, :avoidability, :quantity, :bought_on)
 
 def initialize( options )
   @id = options['id'].to_i
   @name = options['name']
   @avoidability= options['avoidability']
   @quantity = options['quantity'].to_i
+  @bought_on = options['bought_on'].to_i
   @plastic_id = options['plastic_id'].to_i
   @tag_id = options['tag_id'].to_i
 end
 
 #create new product
 def save()
-  sql = "INSERT INTO products (name, avoidability, quantity, plastic_id, tag_id) VALUES ($1, $2, $3, $4, $5) RETURNING id"
-  values=[@name, @avoidability, @quantity, @plastic_id, @tag_id]
+  @bought_on = Time.new
+  sql = "INSERT INTO products (name, avoidability, quantity, bought_on, plastic_id, tag_id) VALUES ($1, $2, $3, $4, $5, $6) RETURNING id"
+  values=[@name, @avoidability, @quantity, @bought_on, @plastic_id, @tag_id]
   results= SqlRunner.run(sql, values)
   @id = results.first()['id'].to_i
 end
@@ -41,8 +44,8 @@ end
 
 #update product
 def update()
-  sql = "UPDATE products SET (name, avoidability, quantity, plastic_id, tag_id) = ($1, $2, $3, $4, $5) WHERE id=$6"
-  values=[@name, @avoidability, @quantity, @plastic_id, @tag_id, @id]
+  sql = "UPDATE products SET (name, avoidability, quantity, plastic_id, tag_id) = ($1, $2, $3, $4, $5, $6) WHERE id=$7"
+  values=[@name, @avoidability, @quantity, @plastic_id, @bought_on, @tag_id, @id]
   SqlRunner.run(sql, values)
 end
 
