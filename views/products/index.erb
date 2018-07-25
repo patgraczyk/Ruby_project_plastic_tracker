@@ -31,6 +31,6 @@
 
 <p>View transactions by month:</p>
 
-<p> <a href="/products/month/<%=product.time_stamp.mon%>" > Month <%= product.time_stamp.mon %> </a> </p>
+<p> <a href="/products/month/<%=product.time_stamp.mon%>" > Month: <%= product.time_stamp.strftime('%b') %> </a> </p>
 
 <%end%>
