@@ -1,9 +1,9 @@
 require_relative( '../db/sql_runner' )
-require_relative( 'time' )
+# require_relative( 'time' )
 
 class Product
 
-  attr_reader( :plastic_id, :tag_id, :id, :bought_on )
+  attr_reader( :plastic_id, :tag_id, :id, :time_stamp )
   attr_accessor( :name, :avoidability, :quantity )
 
 def initialize( options )
@@ -11,16 +11,15 @@ def initialize( options )
   @name = options['name']
   @avoidability= options['avoidability']
   @quantity = options['quantity'].to_i
-  @bought_on = options['bought_on'].to_i
+  @time_stamp = Date.parse(options['time_stamp'])
   @plastic_id = options['plastic_id'].to_i
   @tag_id = options['tag_id'].to_i
 end
 
 #create new product
 def save()
-  @bought_on = Date.today
-  sql = "INSERT INTO products (name, avoidability, quantity, bought_on, plastic_id, tag_id) VALUES ($1, $2, $3, $4, $5, $6) RETURNING id"
-  values=[@name, @avoidability, @quantity, @bought_on, @plastic_id, @tag_id]
+  sql = "INSERT INTO products (name, avoidability, quantity, time_stamp, plastic_id, tag_id) VALUES ($1, $2, $3, $4, $5, $6) RETURNING id"
+  values=[@name, @avoidability, @quantity, @time_stamp, @plastic_id, @tag_id]
   results= SqlRunner.run(sql, values)
   @id = results.first()['id'].to_i
 end

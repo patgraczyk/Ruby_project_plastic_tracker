@@ -69,7 +69,8 @@ product1 = Product.new({
   'avoidability' => true,
   'quantity' => 1,
   'plastic_id' => plastic1.id,
-  'tag_id' => tag2.id
+  'tag_id' => tag2.id,
+  'time_stamp' => '2018-04-01'
   })
 product1.save
 
@@ -78,7 +79,8 @@ product2 = Product.new({
   'avoidability' => false,
   'quantity' => 1,
   'plastic_id' => plastic2.id,
-  'tag_id' => tag1.id
+  'tag_id' => tag1.id,
+  'time_stamp' => '2018-04-01'
   })
 product2.save
 
@@ -87,7 +89,8 @@ product3 = Product.new({
   'avoidability' => true,
   'quantity' => 1,
   'plastic_id' => plastic2.id,
-  'tag_id' => tag1.id
+  'tag_id' => tag1.id,
+  'time_stamp' => '2018-04-01'
   })
 product3.save()
 product3.name = 'hand cream'
