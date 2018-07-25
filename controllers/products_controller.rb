@@ -44,6 +44,8 @@ get '/products/plastic/:id' do
   erb ( :"products/index")
 end
 
+
+
 get '/products/impact' do
   @products = Product.all()
   @tags = Tag.all()

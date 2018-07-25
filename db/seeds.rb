@@ -70,7 +70,7 @@ product1 = Product.new({
   'quantity' => 1,
   'plastic_id' => plastic1.id,
   'tag_id' => tag2.id,
-  'time_stamp' => '2018-04-01'
+  'time_stamp' => '2018-02-01'
   })
 product1.save
 
@@ -80,7 +80,7 @@ product2 = Product.new({
   'quantity' => 1,
   'plastic_id' => plastic2.id,
   'tag_id' => tag1.id,
-  'time_stamp' => '2018-04-01'
+  'time_stamp' => '2018-06-01'
   })
 product2.save
 

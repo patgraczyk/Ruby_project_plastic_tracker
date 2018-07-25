@@ -19,14 +19,18 @@
 <% if @filtered == false %>
 
 <p> View transactions by plastic type:</p>
-<% for product in @products %>
-<p> <a href="/products/plastic/<%=product.plastic_id%>"> Plastic: <%= product.plastic.type %> </a></p>
+<% for plastic in @plastics %>
+<p> <a href="/products/plastic/<%=product.plastic_id%>"> Plastic: <%= plastic.type %> </a></p>
 <%end%>
 
 <p>View transactions by tag:</p>
 
+<% for tag in @tags %>
+<p> <a href = "/products/tag/<%=product.tag_id%>"> Tag: <%= tag.category %> </a> </p>
+<%end%>
+
 <% for product in @products %>
-<p> <a href = "/products/tag/<%=product.tag_id%>"> Tag: <%= product.tag.category %> </a> </p>
+<p> <a href = "/products/month/<%=product.time_stamp.mon%>"> Month: <%= product.time_stamp.strftime("%B") %> </a> </p>
 <%end%>
 
 <%end%>
