@@ -82,4 +82,11 @@ def self.find( id )
   return Plastic.new( results.first )
 end
 
+# def self.most_common_plastic()
+#   sql='SELECT plastic_id, COUNT(plastic_id) AS most_common_plastic FROM products
+#   GROUP BY plastic_id ORDER BY most_common_plastic DESC LIMIT 1;'
+#   most_popular_id = SqlRunner.run(sql).first
+#   return most_popular_id
+# end
+
 end #end of class

@@ -1,7 +1,7 @@
-class Time
+class Date
 
 def get_time()
- return Time.new
+ return Date.new
 end
 
 end

@@ -18,7 +18,7 @@ end
 
 #create new product
 def save()
-  @bought_on = Time.new
+  @bought_on = Date.today
   sql = "INSERT INTO products (name, avoidability, quantity, bought_on, plastic_id, tag_id) VALUES ($1, $2, $3, $4, $5, $6) RETURNING id"
   values=[@name, @avoidability, @quantity, @bought_on, @plastic_id, @tag_id]
   results= SqlRunner.run(sql, values)
@@ -107,8 +107,19 @@ end
 def self.most_common_plastic()
   sql='SELECT plastic_id, COUNT(plastic_id) AS most_common_plastic FROM products
   GROUP BY plastic_id ORDER BY most_common_plastic DESC LIMIT 1;'
-  results =SqlRunner.run(sql)
-  return results.first
+  most_popular_id = SqlRunner.run(sql).first['plastic_id'].to_i
+  return Plastic.find(most_popular_id).type
+end
+
+def self.by_month(month_chosen)
+  all_products = Product.all
+  products_that_month = []
+  month = Date.parse.mon(product.bought_on)
+  for product in all_products
+    if month == month_chosen
+      products_that_month.push(product)
+    end
+  end
 end
 
 def self.find(id)

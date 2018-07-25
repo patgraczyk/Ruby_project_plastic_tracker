@@ -95,6 +95,7 @@ product3.name = 'hand cream'
 
 p Product.most_common_tag
 p Product.most_common_plastic
+# p Product.by_month()
 # p product1.carbon_emissions_per_product()
 # p Product.carbon_emissions()
 # p product1.existence()

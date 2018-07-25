@@ -7,16 +7,15 @@ body {
   font-family: 'Noto Sans', sans-serif;
   margin: 10px;
   padding: 1px;
-  background-color: blue;
 }
 
 .main-nav {
     display: inline-block;
     text-align: left;
     vertical-align: middle;
-    /* width: 100%; */
+    width: 100%;
     font-weight: bold;
-    /* background-color: #0D2557; */
+    background-color: #0D2557;
     color: white;
   }
 
