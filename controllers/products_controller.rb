@@ -44,8 +44,8 @@ get '/products/plastic/:id' do
   erb ( :"products/index")
 end
 
-get '/products/:month' do 
-  month = params[:month]
+get '/products/month/:month' do
+  selected_month = params[:month]
   @products = Product.by_month(selected_month)
   @tags = Tag.all()
   @plastics = Plastic.all()
