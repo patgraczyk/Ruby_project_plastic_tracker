@@ -99,8 +99,8 @@ end
 def self.most_common_tag()
   sql="SELECT tag_id, COUNT(tag_id) AS most_common_tag FROM products
   GROUP BY tag_id ORDER BY most_common_tag DESC LIMIT 1;"
-  results =SqlRunner.run(sql)
-  return results.first
+  most_popular_id =SqlRunner.run(sql).first['tag_id'].to_i
+  return Tag.find(most_popular_id).category
 end
 
 #find most popular plastic
