@@ -13,7 +13,20 @@ get '/products' do
   @products_quantity = Product.quantity_sum
   @products_weight = Product.weight_sum
   @products_emissions = Product.carbon_emissions
+  # binding.pry
   erb ( :"products/index" )
+end
+
+#get products by tag id
+get '/products/tag/:id' do
+  tag_id = params[:id]
+  @products = Product.products_by_tag(tag_id)
+  @tags = Tag.all()
+  @plastics = Plastic.all()
+  @products_quantity = Product.quantity_sum
+  @products_weight = Product.weight_sum
+  @products_emissions = Product.carbon_emissions
+  erb ( :"products/index")
 end
 
 get '/products/impact' do
@@ -40,9 +53,12 @@ get '/products/plastic' do
   erb ( :"products/plastic" )
 end
 
-get '/products/tag/:id' do
-  tag_id = params[:id]
-  @products = Product.products_by_tag(tag_id)
+
+
+
+get '/products/plastic/:id' do
+  plastic_id = params[:id]
+  @products = Product.products_by_plastic(plastic_id)
   @tags = Tag.all()
   @plastics = Plastic.all()
   @products_quantity = Product.quantity_sum
@@ -50,15 +66,6 @@ get '/products/tag/:id' do
   @products_emissions = Product.carbon_emissions
   erb ( :"products/index")
 end
-
-
-# get '/equipment/:model' do
-#   model = params[:model]
-#   @recipes = Recipe.gear(model)
-#   erb_file = "/recipies/equipment" + model
-#   erb (model.to_sym)
-# end
-
 
 
 #create a new product

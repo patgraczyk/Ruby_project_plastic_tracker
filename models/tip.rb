@@ -1,5 +1,5 @@
 class Tip
-
+ 
   def self.all()
     tips = ["Use keep cup",
       "Refuse a straw",
@@ -7,5 +7,5 @@ class Tip
       "Buy a water bottle",
       "Get a soap in block instead of a bottle"]
   end
- 
+
 end #end of the class

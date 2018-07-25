@@ -58,21 +58,21 @@ def plastic()
 end
 
 # #find all tags
-# def tag()
-#   sql = "SELECT * FROM tags WHERE tag_id=$1"
-#   values=[@tag_id]
-#   results= SqlRunner.run(sql, values)
-#   return Tag.new( results.first )
-# end
+def tag()
+  sql = "SELECT * FROM tags WHERE id=$1"
+  values=[@tag_id]
+  results= SqlRunner.run(sql, values)
+  return Tag.new( results.first )
+end
 
 #display products by tags
 def self.products_by_tag(tag_id)
-  sql = "SELECT * FROM products WHERE tag_id= $1"
+  sql = "SELECT * FROM products WHERE tag_id=$1"
   values = [tag_id]
-  # binding.pry
   products_data = SqlRunner.run(sql, values)
   return products_data.map {|product| Product.new(product)}
 end
+
 
 #calculate until when will the product be on the planet
 def existence()
