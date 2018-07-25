@@ -92,9 +92,10 @@ product3 = Product.new({
 product3.save()
 product3.name = 'hand cream'
 # product3.update()
+#
+# p Product.most_common_tag
+# p Product.most_common_plastic
 
-p Product.most_common_tag
-p Product.most_common_plastic
 # p Product.by_month()
 # p product1.carbon_emissions_per_product()
 # p Product.carbon_emissions()

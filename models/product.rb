@@ -57,13 +57,23 @@ def plastic()
   return Plastic.new( results.first )
 end
 
-#find all tags
-def tag()
-  sql = "SELECT * FROM tags WHERE id=$1"
-  values=[@tag_id]
-  results= SqlRunner.run(sql, values)
-  return Tag.new( results.first )
+# #find all tags
+# def tag()
+#   sql = "SELECT * FROM tags WHERE tag_id=$1"
+#   values=[@tag_id]
+#   results= SqlRunner.run(sql, values)
+#   return Tag.new( results.first )
+# end
+
+#display products by tags
+def self.products_by_tag(tag_id)
+  sql = "SELECT * FROM products WHERE tag_id= $1"
+  values = [tag_id]
+  # binding.pry
+  products_data = SqlRunner.run(sql, values)
+  return products_data.map {|product| Product.new(product)}
 end
+
 #calculate until when will the product be on the planet
 def existence()
   sql = 'SELECT existence FROM plastics WHERE id=$1'
@@ -111,6 +121,7 @@ def self.most_common_plastic()
   return Plastic.find(most_popular_id).type
 end
 
+#edit this to make work
 def self.by_month(month_chosen)
   all_products = Product.all
   products_that_month = []
