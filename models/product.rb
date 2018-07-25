@@ -105,7 +105,7 @@ end
 
 #find all products
 def self.all()
-  sql = "SELECT * FROM products"
+  sql = "SELECT * FROM products;"
   products_data = SqlRunner.run(sql)
   products = products_data.map {|product| Product.new( product)}
   return products
@@ -113,14 +113,11 @@ end
 
 #find all products ordered by date
 def self.by_month(selected_month)
-  all_products = Products.all()
-  month_products =[]
-    for product in all_products
-      if product.time_stamp.mon == selected_month
-        month_products << product
-      end
-  return month_products
-end
+  sql ="SELECT * FROM products WHERE date_part('month', time_stamp) = $1;"
+  values = [selected_month]
+  products_data = SqlRunner.run(sql, values)
+  products = products_data.map {|product| Product.new( product)}
+  return products
 end
 
 #find most popular tag
@@ -139,17 +136,6 @@ def self.most_common_plastic()
   return Plastic.find(most_popular_id).type
 end
 
-#edit this to make work
-def self.by_month(month_chosen)
-  all_products = Product.all
-  products_that_month = []
-  month = Date.parse.mon(product.bought_on)
-  for product in all_products
-    if month == month_chosen
-      products_that_month.push(product)
-    end
-  end
-end
 
 def self.find(id)
   sql= "SELECT * FROM products WHERE id=$1"

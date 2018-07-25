@@ -94,6 +94,8 @@ product3 = Product.new({
   })
 product3.save()
 product3.name = 'hand cream'
+
+p Product.by_month(4)
 # product3.update()
 #
 # p Product.most_common_tag

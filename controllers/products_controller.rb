@@ -44,7 +44,17 @@ get '/products/plastic/:id' do
   erb ( :"products/index")
 end
 
-
+get '/products/:month' do 
+  month = params[:month]
+  @products = Product.by_month(selected_month)
+  @tags = Tag.all()
+  @plastics = Plastic.all()
+  @products_quantity = Product.quantity_sum
+  @products_weight = Product.weight_sum
+  @products_emissions = Product.carbon_emissions
+  @filtered = true
+  erb ( :"products/index")
+end
 
 get '/products/impact' do
   @products = Product.all()
@@ -69,9 +79,6 @@ get '/products/plastic' do
   @products_emissions = Product.carbon_emissions
   erb ( :"products/plastic" )
 end
-
-
-
 
 get '/products/plastic/:id' do
   plastic_id = params[:id]
