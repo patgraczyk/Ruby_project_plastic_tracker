@@ -2,7 +2,8 @@
 
 
 <% for product in @products %>
-  <p> Name: <%= product.name %> </p>
+<p> Date: <%= product.bought_on %> </p>
+<p> Name: <%= product.name %> </p>
 <p> Is it avoidable? <%= product.avoidability %> </p>
 <p> Quantity: <%= product.quantity %> </p>
 <p> Category: <%= product.tag.category %> </p>
@@ -15,8 +16,17 @@
 <p> Total carbon footprint: <%= @products_emissions %> tonnes CO2e </p>
 <p><a href = "/products/new"> Create a new product </a></p>
 
+<% if @filtered == false %>
+
+<p> View transactions by plastic type:</p>
+<% for product in @products %>
+<p> <a href="/products/plastic/<%=product.plastic_id%>"> Plastic: <%= product.plastic.type %> </a></p>
+<%end%>
+
 <p>View transactions by tag:</p>
 
 <% for product in @products %>
-<p> <a href = "/products/tag/<%=product.tag_id%>"> Tag: <%= product.tag.category %> </p>
+<p> <a href = "/products/tag/<%=product.tag_id%>"> Tag: <%= product.tag.category %> </a> </p>
+<%end%>
+
 <%end%>

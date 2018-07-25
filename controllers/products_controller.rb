@@ -13,6 +13,7 @@ get '/products' do
   @products_quantity = Product.quantity_sum
   @products_weight = Product.weight_sum
   @products_emissions = Product.carbon_emissions
+  @filtered = false
   # binding.pry
   erb ( :"products/index" )
 end
@@ -26,6 +27,20 @@ get '/products/tag/:id' do
   @products_quantity = Product.quantity_sum
   @products_weight = Product.weight_sum
   @products_emissions = Product.carbon_emissions
+  @filtered = true
+  erb ( :"products/index")
+end
+
+#get products by plastic id
+get '/products/plastic/:id' do
+  plastic_id = params[:id]
+  @products = Product.products_by_plastic(plastic_id)
+  @tags = Tag.all()
+  @plastics = Plastic.all()
+  @products_quantity = Product.quantity_sum
+  @products_weight = Product.weight_sum
+  @products_emissions = Product.carbon_emissions
+  @filtered = true
   erb ( :"products/index")
 end
 

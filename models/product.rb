@@ -73,6 +73,13 @@ def self.products_by_tag(tag_id)
   return products_data.map {|product| Product.new(product)}
 end
 
+#display products by plastic
+def self.products_by_plastic(plastic_id)
+  sql = "SELECT * FROM products WHERE plastic_id=$1"
+  values = [plastic_id]
+  products_data = SqlRunner.run(sql, values)
+  return products_data.map {|product| Product.new(product)}
+end
 
 #calculate until when will the product be on the planet
 def existence()
