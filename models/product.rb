@@ -111,6 +111,18 @@ def self.all()
   return products
 end
 
+#find all products ordered by date
+def self.by_month(selected_month)
+  all_products = Products.all()
+  month_products =[]
+    for product in all_products
+      if product.time_stamp.mon == selected_month
+        month_products << product
+      end
+  return month_products
+end
+end
+
 #find most popular tag
 def self.most_common_tag()
   sql="SELECT tag_id, COUNT(tag_id) AS most_common_tag FROM products
