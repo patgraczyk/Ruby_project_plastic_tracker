@@ -9,6 +9,10 @@ body {
   padding: 1px;
 }
 
+h1 {
+  margin: 15px 10px;
+}
+
 .main-nav {
     display: inline-block;
     text-align: left;
@@ -17,11 +21,12 @@ body {
     font-weight: bold;
     background-color: #0D2557;
     color: white;
+    font-size: 20px;
   }
 
 .main-nav__item {
     display: inline-block;
-    margin: 16px 16px;
+    margin: 10px 10px;
     padding: 3px 0;
     color: white;
 }

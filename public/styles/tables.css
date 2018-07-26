@@ -1,0 +1,19 @@
+# edit the styling - grey & white
+
+td, th {
+  text-align: left;
+  margin: 10px;
+}
+
+td {
+  padding: 10px 20px 0px 0px;
+}
+
+th {
+  padding: 0px 20px 10px 0px;
+  border-bottom: 1px solid papayawhip;
+}
+
+table {
+  border-collapse: collapse;
+}

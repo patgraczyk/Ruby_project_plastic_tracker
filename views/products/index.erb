@@ -1,20 +1,48 @@
-<h1> Link working </h1>
+<h1> All your plastic products </h1> </br>
+
+<table>
+  <tr>
+    <th> Date: </th>
+    <th> Name: </th>
+    <th> Quantity: </th>
+    <th> Plastic type: </th>
+    <th> Weight: </th>
+    <th> Years to biodegrate: </th>
+    <th> Category: </th>
+    <th> </th>
+  </tr>
+    <% for product in @products %>
+  <tr>
+    <td> <%= product.time_stamp %> </td>
+    <td> <%= product.name %> </td>
+    <td> <%= product.quantity %> </td>
+    <td> <%= product.plastic.type %> </td>
+    <td> <%= product.plastic.weight%> </td>
+    <td> <%= product.plastic.existence %> </td>
+    <td> <%= product.tag.category %> </td>
+    <td> <a href = "/products/<%= product.id%>"> Show details </td>
+  </tr>
+    <%end%>
+</table> </br>
 
 
-<% for product in @products %>
-<p> Date: <%= product.time_stamp %> </p>
-<p> Name: <%= product.name %> </p>
-<p> Is it avoidable? <%= product.avoidability %> </p>
-<p> Quantity: <%= product.quantity %> </p>
-<p> Category: <%= product.tag.category %> </p>
-<p> Plastic type: <%= product.plastic.type %> </p>
-<p> <a href = "/products/<%= product.id%>"> Show details </a><p>
-<% end %>
+<h2> Your products summary </h2> </br>
 
-<p> Total quantity: <%= @products_quantity %> </p>
-<p> Total weight: <%= @products_weight %> </p>
-<p> Total carbon footprint: <%= @products_emissions %> tonnes CO2e </p>
-<p><a href = "/products/new"> Create a new product </a></p>
+<table>
+  <tr>
+    <th> Total quantity: </th>
+    <th> Total weight: </th>
+    <th> Total carbon footprint: </th>
+  </tr>
+  <tr>
+    <td> <%= @products_quantity %> </td>
+    <td>  <%= @products_weight %> grammes </td>
+    <td> <%= @products_emissions %> tonnes CO2e </td>
+  </tr>
+</table> </br>
+
+
+
 
 <% if @filtered == false %>
 
@@ -32,5 +60,7 @@
 <p>View transactions by month:</p>
 
 <p> <a href="/products/month/<%=product.time_stamp.mon%>" > Month: <%= product.time_stamp.strftime('%b') %> </a> </p>
-
 <%end%>
+
+<p> View avoidable transactions: </p>
+<p> <a href="/products/avoid/<%=product.avoidability%>"> 

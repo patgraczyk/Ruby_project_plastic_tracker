@@ -14,8 +14,7 @@ get '/products' do
   @products_weight = Product.weight_sum
   @products_emissions = Product.carbon_emissions
   @filtered = false
-  # binding.pry
-  erb ( :"products/index" )
+  erb( :"products/index" )
 end
 
 #get products by tag id
@@ -28,7 +27,7 @@ get '/products/tag/:id' do
   @products_weight = Product.weight_sum
   @products_emissions = Product.carbon_emissions
   @filtered = true
-  erb ( :"products/index")
+  erb( :"products/index")
 end
 
 #get products by plastic id
@@ -41,7 +40,7 @@ get '/products/plastic/:id' do
   @products_weight = Product.weight_sum
   @products_emissions = Product.carbon_emissions
   @filtered = true
-  erb ( :"products/index")
+  erb( :"products/index")
 end
 
 get '/products/month/:month' do
@@ -53,7 +52,7 @@ get '/products/month/:month' do
   @products_weight = Product.weight_sum
   @products_emissions = Product.carbon_emissions
   @filtered = true
-  erb ( :"products/index")
+  erb( :"products/index")
 end
 
 get '/products/impact' do
@@ -77,7 +76,7 @@ get '/products/plastic' do
   @products_quantity = Product.quantity_sum
   @products_weight = Product.weight_sum
   @products_emissions = Product.carbon_emissions
-  erb ( :"products/plastic" )
+  erb( :"products/plastic" )
 end
 
 get '/products/plastic/:id' do
@@ -88,7 +87,7 @@ get '/products/plastic/:id' do
   @products_quantity = Product.quantity_sum
   @products_weight = Product.weight_sum
   @products_emissions = Product.carbon_emissions
-  erb ( :"products/index")
+  erb( :"products/index")
 end
 
 
@@ -96,20 +95,20 @@ end
 get '/products/new' do
   @tags = Tag.all()
   @plastics = Plastic.all()
-  erb (:"products/new")
+  erb(:"products/new")
 end
 
 #save a new product to the list
 post '/products' do
   @product = Product.new(params)
   @product.save
-  erb (:"products/create")
+  erb(:"products/create")
 end
 
 #show a specific product by id
 get '/products/:id' do
   @product= Product.find(params['id'])
-  erb (:"products/show")
+  erb(:"products/show")
 end
 
 #edit the selected product
@@ -117,7 +116,7 @@ get '/products/:id/edit' do
   @tags = Tag.all()
   @plastics = Plastic.all()
   @product = Product.find(params['id'])
-  erb (:"products/edit")
+  erb(:"products/edit")
 end
 
 #post the edited form

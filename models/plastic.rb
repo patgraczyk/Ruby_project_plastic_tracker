@@ -2,7 +2,7 @@ require_relative( '../db/sql_runner' )
 
 class Plastic
   attr_reader :id
-  attr_accessor :type, :existence, :weight, :conversion_factor, :recycable
+  attr_accessor(:type, :existence, :weight, :conversion_factor, :recycable)
 
 def initialize( options )
   @id = options['id'].to_i if options['id']
@@ -16,7 +16,7 @@ end
 #create new plastic type
 def save()
   sql = "INSERT INTO plastics (type, existence, weight, conversion_factor, recycable) VALUES ($1, $2, $3, $4, $5)
-  RETURNING id"
+  RETURNING id;"
   values=[@type, @existence, @weight, @conversion_factor, @recycable]
   results = SqlRunner.run(sql, values)
   @id = results.first()['id'].to_i
@@ -24,14 +24,15 @@ end
 
 #delete by id
 def delete()
-  sql = "DELETE FROM plastics WHERE id = $1"
+  sql = "DELETE FROM plastics WHERE id = $1;"
   values = [@id]
   SqlRunner.run(sql,values)
 end
 
 #see all tags associated with a specific plastic
 def tags()
-  sql = "SELECT t.* FROM tags t INNER JOIN products p ON p.tag_id = t.id WHERE p.plastic_id = $1;"
+  sql = "SELECT t.* FROM tags t INNER JOIN products p ON p.tag_id = t.id
+  WHERE p.plastic_id = $1;"
   values= [@id]
   results= SqlRunner.run(sql, values)
   return results.map{|tag| Tag.new(tag)}
@@ -39,14 +40,14 @@ end
 
 #delete all plastic types
 def self.delete_all
-  sql = "DELETE FROM plastics"
+  sql = "DELETE FROM plastics;"
   SqlRunner.run(sql)
 end
 
 #update entry
 def update( )
   sql = "UPDATE plastics SET (type, existence, weight, conversion_factor, recycable) = ($1, $2, $3, $4, $5)
-  WHERE id = $6"
+  WHERE id = $6;"
   values = [@type, @existence, @weight, @conversion_factor, @recycable, @id]
   SqlRunner.run(sql, values)
 end
@@ -59,7 +60,7 @@ def self.all()
   return plastics
 end
 
-#calculate total weight of items - Did I actually need it?
+#calculate total weight of items - function not needed, delete
 def self.weight()
   sql = "SELECT SUM(weight) FROM plastics"
   results= SqlRunner.run(sql)
@@ -81,12 +82,5 @@ def self.find( id )
   results = SqlRunner.run(sql, values)
   return Plastic.new( results.first )
 end
-
-# def self.most_common_plastic()
-#   sql='SELECT plastic_id, COUNT(plastic_id) AS most_common_plastic FROM products
-#   GROUP BY plastic_id ORDER BY most_common_plastic DESC LIMIT 1;'
-#   most_popular_id = SqlRunner.run(sql).first
-#   return most_popular_id
-# end
 
 end #end of class

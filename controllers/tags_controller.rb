@@ -5,7 +5,7 @@ also_reload('./models/*')
 
 get '/tags' do
   @tags = Tag.all()
-  erb ( :"tags/index" )
+  erb( :"tags/index" )
 end
 
 #create a new tag
