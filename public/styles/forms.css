@@ -24,6 +24,14 @@ input[type=checkbox] {
     box-sizing: border-box;
 }
 
+input[type=submit] {
+    width: 10%;
+    height: 20px;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+}
+
 select {
     width: 20%;
     padding: 16px 20px;

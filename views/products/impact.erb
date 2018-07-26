@@ -1,27 +1,76 @@
-<h1> This is your impact page </h1>
+<div class="bg-imgs bg-img__landing"></div>
 
-<h1> Things that you can view here </h1>
+<h1> Your current impact </h1>
+
+<div class="info_bar_impact">
+  <h3> Look so far you bought: </h3>
+</div>
+  <table>
+    <% for product in @products %>
+    <tr>
+      <th><%= product.name %></th>
+    </tr>
+    <% end%>
+  </table>
+
+<p> Together that's <%= @products_quantity %> items! </p>
 
 
-<h1> Look this month you bought: </h1>
-<% for product in @products %>
-  <p> <%= product.name %> <% end%> </p> all together that's <%= @products_quantity %>.
-  <p> Out of all of them, the following you said you could have avoided. </p>
+<div class="info_bar_impact">
+    <h3> You said, that you did not have to buy these itmes. You, won't buy them next time, will you? </h3>
+</div>
+  <table>
+    <% for product in @products_avoidable %>
+    <tr>
+      <th><%= product.name %> </th>
+    </tr>
+    <%end%>
+  </table>
 
 
-  <p> You said, that you did not have to buy these itmes. You, won't buy them next time, will you? </p>
-  <% for product in @products_avoidable %>
-  <p> <%= product.name %> </p>
-  <%end%>
-
-  <p> These items were recycable. You totally recycled them, right?</p>
+  <div class="info_bar_impact">
+      <h3> These items were recycable. You totally recycled them, right? </h3>
+  </div>
+  <table>
+    <tr>
   <% for product in @products_recycable %>
-  <p> <%= product.name %> </p>
+  <th> <%= product.name %> </th>
+    </tr>
   <%end%>
-  <p> And by the way, don't buy these, they go straight into landfil </p>
+  </table>
 
-<p> Your most popular plastic type was: <%= @products_top_plastic%></p>
-<p> Your most popular category was:<%= @products_top_tag%> </p>
 
-<p> Total weight: <%= @products_weight %> </p>
-<p> Total carbon footprint: <%= @products_emissions %> tonnes CO2e </p>
+  <div class="info_bar_impact">
+      <h3> Your most common plastic type is: </h3>
+  </div>
+  <table>
+    <tr>
+      <th><%= @products_top_plastic%></th>
+    </tr>
+  </table>
+  <p> Maybe it's time to buy less of it ...? </p>
+
+<div class="info_bar_impact">
+    <h3> Your most common category is: </h3>
+</div>
+<table>
+  <tr>
+<th><%= @products_top_tag%> </th>
+</tr>
+</table>
+<p> Maybe it's time to buy less of it ...? </p>
+
+<div class="info_bar_impact">
+    <h3> So far, all your plastic weight is: </h3>
+</div>
+
+<p><%= @products_weight %> grammes. </p>
+<progress value="30" max="100">30%</progress>
+<p> Try to meet your target as late as possible. </p>
+
+<div class="info_bar_impact">
+     <h3> Total carbon footprint: </h3>
+ </div>
+ <p><%= @products_emissions %> kg CO2e </p>
+ <progress value="60" max="100">60%</progress>
+ <p> Try to meet your target as late as possible. </p>

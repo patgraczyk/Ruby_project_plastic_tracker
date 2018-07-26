@@ -1,7 +1,7 @@
 <h1> All your plastic products </h1>
 <button class="btn"><a href="/products/new"> Record New </a></button>
 <button class="btn"><a href="/"> Go Back </a></button>
-</br>
+</br></br>
 <table>
   <tr>
     <th> Date: </th>
@@ -28,7 +28,7 @@
     <td> <a href = "/products/<%= product.id%>"> Show details </td>
   </tr>
     <%end%>
-</table> </br>
+</table> </br> </br>
 
 <% if @filtered == false %>
 
@@ -60,7 +60,13 @@
 <p>View transactions by month:</p>
 
 <button class="btn"> <a href="/products/month/<%=product.time_stamp.mon%>"> <%= product.time_stamp.strftime('%b')%> </a></button>
+<button class="btn"><a href="/"> Jul </a></button>
+<button class="btn"><a href="/"> Aug </a></button>
+<button class="btn"><a href="/"> Sept </a></button>
+<button class="btn"><a href="/"> Oct </a></button>
+<button class="btn"><a href="/"> Nov </a></button>
 
-<p> View avoidable transactions <a href="/products/avoid/<%=product.avoidability%>"> </p>
+<p> View avoidable transactions:  </p>
+<button class="btn"><a href="/products/avoid/<%=product.avoidability%>"> I did not have to buy </a></button>
 
 <%end%>

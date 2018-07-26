@@ -1,0 +1,40 @@
+.bg-imgs {
+	background-image: url('/images/soap.png');
+}
+
+.bg-imgs_show {
+	background-image: url('/images/bag.png');
+}
+.bg-imgs_show_plas {
+	background-image: url('/images/straw.png');
+}
+
+.bg-img__landing {
+	background-position: center;
+  background-repeat: no-repeat;
+  background-position: right top;
+  position: absolute;
+	top: 20;
+	width: 100%;
+	height: 100%;
+	margin: 0;
+	padding: 0;
+	z-index: -9000;
+}
+
+
+.info_bar_impact {
+  background-color: #558D96;
+  width: 43%;
+  color: white;
+  padding: 6px;
+  margin-left: 2px;
+  border-radius: 10px;
+  margin-top: 30px;
+  border-style: #558D96 solid 70px;
+}
+
+progress{
+  width: 250px;
+  height: 20px;
+}
