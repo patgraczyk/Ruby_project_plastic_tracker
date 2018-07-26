@@ -1,8 +1,20 @@
-<h1> All existing categories </h1>
+<h1> All tags </h1>
 
-<% for tag in @tags %>
-<p> Name: <%= tag.category %> </p>
-<p> <a href = "/tags/<%= tag.id%>"> Show details </a><p>
-<% end %>
+<table>
+  <tr>
+    <th> Name: </th>
+    <th></th>
+    <th></th>
+  </tr>
+  <tr>
+  <% for tag in @tags %>
+    <td> <%= tag.category %> </td>
+    <td> <a href = "/tags/<%= tag.id%>"> Show details </a> </td>
+    </form> </td>
+  </tr>
+  <% end %>
+</table>
 
-<p><a href = "/tags/new"> Create a new category </a></p>
+
+<button class="btn"> <a href = "/tags/new"> Create new tag </a></button>
+<button class="btn"><a href="/"> Go Back </a></button>

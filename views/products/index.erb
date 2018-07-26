@@ -1,4 +1,5 @@
 <h1> All your plastic products </h1> </br>
+<button class="btn"><a href="/products/new"> Record New </a></button>
 
 <table>
   <tr>
@@ -25,8 +26,7 @@
     <%end%>
 </table> </br>
 
-
-<h2> Your products summary </h2> </br>
+<% if @filtered == false %>
 
 <table>
   <tr>
@@ -41,26 +41,22 @@
   </tr>
 </table> </br>
 
-
-
-
-<% if @filtered == false %>
-
 <p> View transactions by plastic type:</p>
+
 <% for plastic in @plastics %>
-<p> <a href="/products/plastic/<%=product.plastic_id%>"> Plastic: <%= plastic.type %> </a></p>
+<button class="btn"><a href="/products/plastic/<%=plastic.id%>"> <%= plastic.type %> </a></button>
 <%end%>
 
 <p>View transactions by tag:</p>
 
 <% for tag in @tags %>
-<p> <a href = "/products/tag/<%=product.tag_id%>"> Tag: <%= tag.category %> </a> </p>
+<button class="btn"> <a href = "/products/tag/<%=tag.id%>"> <%= tag.category %> </a> </button>
 <%end%>
 
 <p>View transactions by month:</p>
 
-<p> <a href="/products/month/<%=product.time_stamp.mon%>" > Month: <%= product.time_stamp.strftime('%b') %> </a> </p>
-<%end%>
+<button class="btn"> <a href="/products/month/<%=product.time_stamp.mon%>"> <%= product.time_stamp.strftime('%b')%> </a></button>
 
-<p> View avoidable transactions: </p>
-<p> <a href="/products/avoid/<%=product.avoidability%>"> 
+<p> View avoidable transactions <a href="/products/avoid/<%=product.avoidability%>"> </p>
+
+<%end%>

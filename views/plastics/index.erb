@@ -1,10 +1,23 @@
 <h1> All recorded plastic types</h1>
 
-<% for plastic in @plastics %>
-<p> Type: <%= plastic.type %> </p>
-<p> Years to biodegrate: <%= plastic.existence %> </p>
-<p> Weight: <%= plastic.weight %> grams </p>
-<p> <a href = "/plastics/<%= plastic.id%>"> Show details </a><p>
-<% end %>
+<table>
+  <tr>
+    <th>Type: </th>
+    <th>Years to biodegrate: </th>
+    <th>Weight(grams): </th>
+    <th>Can you recycle it?</th>
+    <th></th>
+  </tr>
+    <% for plastic in @plastics %>
+  <tr>
+    <td> <%= plastic.type %> </td>
+    <td> <%= plastic.existence %></td>
+    <td> <%= plastic.weight %></td>
+    <td> <%= plastic.recycable %></td>
+    <td> <a href = "/plastics/<%= plastic.id%>"> Show details </a></td>
+  </tr>
+  <% end %>
+</table> </br>
 
-<p> <a href = "/plastics/new"> Create a new plastic type </a></p>
+<button class="btn"><a href="/plastics/new"> Create New </a></button>
+<button class="btn"><a href="/"> Go Back </a></button>

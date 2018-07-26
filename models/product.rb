@@ -86,7 +86,6 @@ def existence()
   values=[@plastic_id]
   results= SqlRunner.run(sql, values)
   return (results.first)['existence'].to_i + 2018
-  #2018 hard coded at the moment, will change to use as a current year from SQL
 end
 
 #calculate total quantity of items

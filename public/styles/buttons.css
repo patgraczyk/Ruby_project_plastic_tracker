@@ -1,0 +1,15 @@
+.btn {
+  border: 0px none;
+  border-radius: 8px;
+  padding: 14px 40px;;
+  color: white;
+  cursor:pointer;
+  background-color: #0D2557;
+  font-size: 12px;
+}
+
+.btn a:hover,
+.btn a:visited,
+.btn a:active {
+    color: white;
+}

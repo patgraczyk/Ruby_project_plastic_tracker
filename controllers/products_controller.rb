@@ -14,7 +14,7 @@ get '/products' do
   @products_weight = Product.weight_sum
   @products_emissions = Product.carbon_emissions
   @filtered = false
-  erb( :"products/index" )
+  erb( :"products/index")
 end
 
 #get products by tag id
