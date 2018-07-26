@@ -13,7 +13,11 @@
     <td> <%= plastic.type %> </td>
     <td> <%= plastic.existence %></td>
     <td> <%= plastic.weight %></td>
-    <td> <%= plastic.recycable %></td>
+    <td> <% if plastic.recycable == 't'%>
+         Yes
+        <%else%> No
+      <%end%>
+    </td>
     <td> <a href = "/plastics/<%= plastic.id%>"> Show details </a></td>
   </tr>
   <% end %>

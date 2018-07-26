@@ -1,6 +1,7 @@
-<h1> All your plastic products </h1> </br>
+<h1> All your plastic products </h1>
 <button class="btn"><a href="/products/new"> Record New </a></button>
-
+<button class="btn"><a href="/"> Go Back </a></button>
+</br>
 <table>
   <tr>
     <th> Date: </th>
@@ -8,7 +9,8 @@
     <th> Quantity: </th>
     <th> Plastic type: </th>
     <th> Weight: </th>
-    <th> Years to biodegrate: </th>
+    <th> Years: </th>
+    <th> Did you have to buy it? </th>
     <th> Category: </th>
     <th> </th>
   </tr>
@@ -20,6 +22,8 @@
     <td> <%= product.plastic.type %> </td>
     <td> <%= product.plastic.weight%> </td>
     <td> <%= product.plastic.existence %> </td>
+    <td> <% if product.avoidability == 't'%>
+      Yes <%else%> No <%end%>
     <td> <%= product.tag.category %> </td>
     <td> <a href = "/products/<%= product.id%>"> Show details </td>
   </tr>

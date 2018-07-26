@@ -1,0 +1,67 @@
+.tip_box {
+  background-color: #F5DED5;
+  font-size: 22px;
+  min-height: 300px;
+  max-height: 200px;
+  border: red, solid, 5px;
+  text-align: center;
+  width: 60%;
+  border-radius: 60px;
+  position: relative;
+  margin-left: 270px;
+  margin-bottom: 50px;
+  margin-top: 30px;
+}
+
+.intro {
+  margin-top: 20px;
+  text-align: center;
+  font-size: 60px;
+}
+
+.tip_box_text {
+  text-align: center;
+  font-size: 50px;
+  padding-top: 100px;
+}
+
+.main_container{
+  margin-top: 50px;
+}
+.photo {
+  -webkit-clip-path: polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0% 30%);
+  clip-path: polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0% 30%);
+  width: 25%;
+  min-height: 270px;
+  max-height: 270px;
+  padding: 15px;
+}
+
+.info_bar {
+  background-color: #558D96;
+  width: 23%;
+  color: white;
+  padding: 6px;
+  margin-left: 2px;
+  border-radius: 10px;
+  margin-top: 30px;
+  border-style: #558D96 solid 70px;
+}
+
+
+.info_boxes {
+  display: flex;
+  justify-content: flex-start;
+  margin-left: 20px;
+}
+
+.info_box {
+  background-color: #558D96;
+  color: white;
+  padding: 6px;
+  border-radius: 10px;
+  width: 300px;
+  text-align: center;
+  margin-right: 60px;
+  margin-left: 20px;
+}
