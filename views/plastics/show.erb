@@ -1,15 +1,28 @@
-<h1> Your plastic details </h1>
+<h2> Your plastic details </h2> </br>
 
-<p> Type: <%= @plastic.type %> </p>
-<p> Years to biodegrate: <%= @plastic.existence %> </p>
-<p> Weight: <%= @plastic.weight %> grams </p>
-<p> Conversion Factor: <%= @plastic.conversion_factor %> kgCO2e </p>
+<table>
+  <tr>
+    <th> Type: </th>
+    <td> <%= @plastic.type %></td>
+  </tr>
+  <tr>
+    <th> Years to biodegrate: </th>
+    <td> <%= @plastic.existence %> </td>
+  </tr>
+  <tr>
+    <th> Weight: </th>
+    <td> <%= @plastic.weight %> grammes </td>
+  </tr>
+  <tr>
+    <th> Conversio factor: </th>
+    <td> <%= @plastic.conversion_factor %> kgCO2e </td>
+  </tr>
+</table>
+</br></br>
 
 
-<p> <a href="/plastics/<%= @plastic.id %>/edit"> Edit </a></p>
-
+<button class="btn"> <a href="/plastics/<%= @plastic.id %>/edit"> Edit </a></button>
+<button class="btn"> <a href="/plastics"> Go back to plastics </a></button>
 <form action="/plastics/<%= @plastic.id %>/delete" method="post">
   <input type="submit" value="DELETE">
 </form>
-
-<p> <a href="/plastics"> Go back to plastics </a></p>

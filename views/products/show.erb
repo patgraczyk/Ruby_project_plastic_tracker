@@ -1,19 +1,39 @@
-<h1> This is your product </h1>
+<h1> Your product summary: </h1>
 
-<p> Name: <%= @product.name %> </p>
-<p> Is it avoidable? <%= @product.avoidability %> </p>
-<p> Quantity: <%= @product.quantity %> </p>
-<p> Category: <%= @product.tag.category %> </p>
-<p> Plastic type: <%= @product.plastic.type %> </p>
-<p> Your plastic will be on the planet until:  <%= @product.existence %>
-<p> Carbon footprint: <%= @product.carbon_emissions_per_product %> kg CO2e </p>
+<table>
+  <tr>
+    <th> Name: </th>
+    <td> <%= @product.name %> </td>
+  </tr>
+  <tr>
+    <th> Is it avoidable? </th>
+    <td> <%= @product.avoidability %> </td>
+  </tr>
+  <tr>
+    <th> Quantity: </th>
+    <td> <%= @product.quantity %> </td>
+  </tr>
+  <tr>
+    <th> Tag: </th>
+    <td> <%= @product.tag.category %> </td>
+  </tr>
+  <tr>
+    <th> Plastic type: </th>
+    <td> <%= @product.plastic.type %></td>
+  </tr>
+  <tr>
+    <th> Your product will be on the planet until: </th>
+    <td> <%= @product.existence %> </td>
+  </tr>
+  <tr>
+    <th> Carbon footprint: </th>
+    <td> <%= @product.carbon_emissions_per_product %> kg CO2e </td>
+  </tr>
+</table>
 
-<p> <a href="/products/<%=@product.id%>/edit"> Edit </a></p>
 
+<button class="btn"> <a href="/products/<%=@product.id%>/edit"> Edit </a></button>
+<button class="btn"> <a href="/products"> Go back to products </a> </button>
 <form action="/products/<%=@product.id%>/delete" method="post">
   <input type="submit" value="Delete">
 </form>
-
-
-
-<p> <a href="/products"> Go back to products </a> </p>

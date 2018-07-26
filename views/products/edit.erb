@@ -3,33 +3,33 @@
 <form class="new product" action="/products/<%=@product.id %>" method="post">
 
   <label for="name"> What did you buy?</label>
-  <input id = "name" type="text" name="name" value="<%=@product.name%>">
+  <input id = "name" type="text" name="name" value="<%=@product.name%>"> </br>
 
   <label for="date"> When did you buy?</label>
-  <input id = "date" type="date" name="time_stamp" value="<%=@product.time_stamp%>">
+  <input id = "date" type="date" name="time_stamp" value="<%=@product.time_stamp%>"></br>
 
   <label for="quantity"> How many did you buy?</label>
-  <input id = "quantity" type="number" name="quantity" value="<%=@product.quantity%>">
+  <input id = "quantity" type="number" name="quantity" value="<%=@product.quantity%>"></br>
 
   <label for="avoidability"> Could you have avoided it?</label>
   <select id = "avoidability" type="checkbox" name="avoidability" value="<%=@product.avoidability%>">
     <option value="true"> Yes </option>
     <option value="false"> No </option>
-  <select >
-
+  <select ></br>
+</br>
   <label for="plastic_select">Which type of plastic was it?</label>
     <select name="plastic_id" id="plastic_select">
       <% for plastic in @plastics %>
       <option value="<%= plastic.id %>"> <%= 'selected' if @product.plastic.id == plastic.id%> <%=plastic.type %></option>
       <% end %>
-    </select>
+    </select></br></br>
 
     <label for="tag_select"> Which category was it? </label>
     <select name="tag_id" id="tag_select">
       <% for tag in @tags %>
       <option value="<%=tag.id%>"> <%='selected' if @product.tag.id == tag.id%> <%=tag.category %> </option>
       <% end %>
-    </select>
+    </select></br></br>
 
     <input type="submit" value="Update your product">
 

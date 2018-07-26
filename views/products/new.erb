@@ -3,26 +3,26 @@
 <form class="new product" action="/products" method="post">
 
   <label for="name"> What did you buy?</label>
-  <input id = "name" type="text" name="name">
+  <input id = "name" type="text" name="name"> </br>
 
-  <label for="date"> When did you buy?</label>
-  <input id = "date" type="date" name="time_stamp">
+  <label for="date"> When did you buy it?</label>
+  <input id = "date" type="date" name="time_stamp"></br>
 
   <label for="quantity"> How many did you buy?</label>
-  <input id = "quantity" type="number" name="quantity">
+  <input id = "quantity" type="number" name="quantity"> </br>
 
   <label for="avoidability"> Could you have avoided it?</label>
   <select id = "avoidability" type="checkbox" name="avoidability">
     <option value="true"> Yes </option>
-    <option value="false"> No </option>
-  <select >
+    <option value="false"> No </option> </br> </br>
 
+  <select >
   <label for="plastic_select">Which type of plastic was it?</label>
     <select name="plastic_id" id="plastic_select">
       <% for plastic in @plastics %>
       <option value="<%= plastic.id %>"><%= plastic.type %></option>
       <% end %>
-    </select>
+  </select> </br> </br>
 
     <label for="tag_select"> Which category was it? </label>
     <select name="tag_id" id="tag_select">
@@ -30,6 +30,8 @@
       <option value="<%=tag.id%>"><%= tag.category %></option>
       <% end %>
     </select>
+
+  </br>
 
     <input type="submit" value="Record new product">
 

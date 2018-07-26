@@ -13,20 +13,3 @@
 .btn a:active {
     color: white;
 }
-
-.btn_landing{
-  border: 0px none;
-  border-radius: 8px;
-  padding: 14px 40px;;
-  color: white;
-  cursor:pointer;
-  background-color: #93A8C9;
-  font-size: 12px;
-  height: 60px;
-}
-
-.btn_landing a:hover,
-.btn_landing a:visited,
-.btn_landing a:active {
-    color: white;
-}
