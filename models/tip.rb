@@ -1,10 +1,13 @@
 class Tip
 
   def self.all()
-    tips = ["Use keep cup",
+    tips = ["Use a keep cup",
       "Refuse a straw",
-      "Use drawstring bag",
-      "Buy a water bottle",
+      "Use a drawstring bag",
+      "Get a reusable water bottle",
+      "Use a plastic-free toothbrush",
+      "Use kitchen gadgets made of bamboo",
+      "Use screw jars for storage"
       ]
   end
 

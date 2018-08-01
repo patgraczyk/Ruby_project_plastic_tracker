@@ -26,7 +26,9 @@ end
 
 #display carbon emissions per product
 def carbon_emissions_per_product()
-  sql = 'SELECT (conversion_factor * weight) AS converted FROM plastics INNER JOIN products ON products.plastic_id = plastics.id WHERE products.id = $1'
+  sql = 'SELECT (conversion_factor * weight) AS converted FROM plastics
+  INNER JOIN products ON products.plastic_id = plastics.id
+  WHERE products.id = $1'
   values=[@id]
   results= SqlRunner.run(sql, values)
   emission_of_product = results.first['converted'].to_f * @quantity
@@ -130,7 +132,8 @@ end
 #find most popular plastic
 def self.most_common_plastic()
   sql='SELECT plastic_id, COUNT(plastic_id) AS most_common_plastic FROM products
-  GROUP BY plastic_id ORDER BY most_common_plastic DESC LIMIT 1;'
+  GROUP BY plastic_id
+  ORDER BY most_common_plastic DESC LIMIT 1;'
   most_popular_id = SqlRunner.run(sql).first['plastic_id'].to_i
   return Plastic.find(most_popular_id).type
 end

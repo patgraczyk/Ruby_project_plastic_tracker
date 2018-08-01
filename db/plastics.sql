@@ -23,6 +23,6 @@ CREATE TABLE products(
   avoidability BOOLEAN,
   quantity INT4 NOT NULL,
   time_stamp DATE,
-  plastic_id INT8 REFERENCES plastics(id),
-  tag_id INT8 REFERENCES tags(id)
+  plastic_id INT8 REFERENCES plastics(id) ON DELETE CASCADE,
+  tag_id INT8 REFERENCES tags(id) ON DELETE CASCADE
 )
